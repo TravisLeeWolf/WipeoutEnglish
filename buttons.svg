@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="793.70081"
+   height="1122.5197"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="buttons.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     showborder="false"
+     units="px"
+     inkscape:zoom="0.33933718"
+     inkscape:cx="443.51167"
+     inkscape:cy="596.75158"
+     inkscape:window-width="1920"
+     inkscape:window-height="1013"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient7601">
+      <stop
+         style="stop-color:#2ec27e;stop-opacity:1;"
+         offset="0"
+         id="stop7597" />
+      <stop
+         style="stop-color:#1f7b51;stop-opacity:1"
+         offset="1"
+         id="stop7599" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2553">
+      <stop
+         style="stop-color:#287552;stop-opacity:1"
+         offset="0"
+         id="stop2549" />
+      <stop
+         style="stop-color:#26a269;stop-opacity:1"
+         offset="1"
+         id="stop2551" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient916">
+      <stop
+         style="stop-color:#99c1f1;stop-opacity:1"
+         offset="0"
+         id="stop912" />
+      <stop
+         style="stop-color:#0e3b73;stop-opacity:1"
+         offset="1"
+         id="stop914" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient560">
+      <stop
+         style="stop-color:#62a0ea;stop-opacity:1"
+         offset="0"
+         id="stop554" />
+      <stop
+         style="stop-color:#3584e4;stop-opacity:1"
+         offset="0.36359379"
+         id="stop556" />
+      <stop
+         style="stop-color:#1a5fb4;stop-opacity:1"
+         offset="1"
+         id="stop558" />
+    </linearGradient>
+    <rect
+       x="898.81101"
+       y="660.11038"
+       width="162.08067"
+       height="57.464965"
+       id="rect17735" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient13326">
+      <stop
+         style="stop-color:#62a0ea;stop-opacity:1"
+         offset="0"
+         id="stop13322" />
+      <stop
+         style="stop-color:#3584e4;stop-opacity:1"
+         offset="0.60957998"
+         id="stop14038" />
+      <stop
+         style="stop-color:#1a5fb4;stop-opacity:1"
+         offset="1"
+         id="stop13324" />
+    </linearGradient>
+    <rect
+       x="29.8146"
+       y="350.32155"
+       width="211.68366"
+       height="169.94322"
+       id="rect8241" />
+    <rect
+       x="20.87022"
+       y="56.64774"
+       width="134.91106"
+       height="116.27694"
+       id="rect2069" />
+    <rect
+       x="898.81101"
+       y="660.11038"
+       width="162.08067"
+       height="57.464965"
+       id="rect21313" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient13326"
+       id="radialGradient253"
+       cx="155.98857"
+       cy="89.355247"
+       fx="155.98857"
+       fy="89.355247"
+       r="68.000031"
+       gradientTransform="matrix(0.89515728,-0.90111029,0.93860196,0.93239297,-75.359115,128.20196)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient560"
+       id="linearGradient134"
+       x1="445.992"
+       y1="-5.0680919"
+       x2="445.99197"
+       y2="95.124168"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient916"
+       id="linearGradient918"
+       x1="445.992"
+       y1="-5.0680919"
+       x2="445.99197"
+       y2="137.2283"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2553"
+       id="linearGradient2555"
+       x1="443.26303"
+       y1="280.30441"
+       x2="442.87317"
+       y2="142.68625"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7601"
+       id="radialGradient7603"
+       cx="443.60199"
+       cy="258.61536"
+       fx="443.60199"
+       fy="258.61536"
+       r="70.764956"
+       gradientTransform="matrix(1.6996948,-0.01909172,0.01296416,1.1541715,-312.57049,-31.436795)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke-width:6.71217;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect53"
+       width="73"
+       height="73"
+       x="1.4210855e-14"
+       y="0" />
+    <rect
+       style="fill:url(#radialGradient253);fill-opacity:1;stroke:none;stroke-width:5.52985;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect157"
+       width="136.00006"
+       height="136"
+       x="78"
+       y="0"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\tileButton2.png"
+       inkscape:export-xdpi="50.799976"
+       inkscape:export-ydpi="50.799976"
+       rx="26.458334"
+       ry="26.458334" />
+    <rect
+       style="fill:#1c71d8;stroke-width:6.71217;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect239"
+       width="73"
+       height="73"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:#9141ac;stroke-width:5.99082;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill;fill-opacity:1"
+       id="rect263"
+       width="150"
+       height="73"
+       x="219"
+       y="0"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\pick_team.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045" />
+    <rect
+       style="fill:#000000;stroke-width:6.71217;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect345"
+       width="73"
+       height="73"
+       x="0"
+       y="78" />
+    <rect
+       style="fill:#f5c211;stroke-width:5.99082;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect347"
+       width="150"
+       height="73"
+       x="219"
+       y="78"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\nextq.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045" />
+    <rect
+       style="fill:#e01b24;stroke-width:5.99082;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect349"
+       width="150"
+       height="73"
+       x="219"
+       y="156"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\end.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045" />
+    <text
+       xml:space="preserve"
+       transform="matrix(1.6250435,0,0,1.6250435,-42.041653,-91.286344)"
+       id="text2067"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2069);fill:#ffffff;fill-opacity:1;stroke:none"><tspan
+         x="20.871094"
+         y="92.678614"
+         id="tspan1087">🔄</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(1.6250435,0,0,1.6250435,-56.575001,-490.51913)"
+       id="text8239"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect8241);fill:#26a269;fill-opacity:1;stroke:none"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\okayDisabled.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045"><tspan
+         x="29.814453"
+         y="386.35244"
+         id="tspan1089">✅</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4.67948;stroke-linejoin:miter;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect11603"
+       width="68.320518"
+       height="68.320518"
+       x="2.3397391"
+       y="80.339737"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\okay.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4.67942085;stroke-linejoin:miter;stroke-dashoffset:9.52442;paint-order:markers stroke fill;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect12908"
+       width="68.320518"
+       height="68.320518"
+       x="2.3397391"
+       y="2.33974"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\revert.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4.72954;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect15601"
+       width="145.27046"
+       height="68.270454"
+       x="221.36478"
+       y="2.364773" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4.72954;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect15603"
+       width="145.27046"
+       height="68.270454"
+       x="221.36478"
+       y="80.364769" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:4.72954;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect15605"
+       width="145.27046"
+       height="68.270454"
+       x="221.36478"
+       y="158.36478" />
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:3.84348;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+       id="rect54"
+       width="165.48985"
+       height="91.406517"
+       x="1.9217385"
+       y="157.92166"
+       rx="12.928896"
+       ry="12.69535"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\confirmBox2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:url(#linearGradient134);fill-opacity:1;stroke:url(#linearGradient918);stroke-width:5.52985;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect32"
+       width="136.00006"
+       height="136"
+       x="374.82092"
+       y="0"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\tile3.png"
+       inkscape:export-xdpi="48.815128"
+       inkscape:export-ydpi="48.815128"
+       rx="26.458334"
+       ry="26.458334" />
+    <rect
+       style="fill:url(#radialGradient7603);fill-opacity:1;stroke:url(#linearGradient2555);stroke-width:5.52985;stroke-linejoin:round;stroke-dashoffset:9.52442;paint-order:markers stroke fill"
+       id="rect36"
+       width="136.00006"
+       height="136"
+       x="374.82092"
+       y="143.40823"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\tile3pressed.png"
+       inkscape:export-xdpi="48.815128"
+       inkscape:export-ydpi="48.815128"
+       rx="26.458334"
+       ry="26.458334" />
+    <ellipse
+       style="fill:#813d9c;stroke:#000000;stroke-width:1.4699;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+       id="path73"
+       cx="-13.397598"
+       cy="7.2774887"
+       rx="5.8796296"
+       ry="5.879632"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\grabber.png"
+       inkscape:export-xdpi="38.400002"
+       inkscape:export-ydpi="38.400002" />
+    <rect
+       style="fill:#e66100;stroke:#000000;stroke-width:3.54752;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers stroke fill"
+       id="rect889"
+       width="32.435848"
+       height="27.673313"
+       x="-46.993004"
+       y="23.180557"
+       rx="11.924942"
+       ry="11.725981"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\gradeButtonPressed.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#813d9c;stroke:#000000;stroke-width:3.60637;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:9.52442;paint-order:markers stroke fill;stroke-linecap:round"
+       id="rect886"
+       width="78.414459"
+       height="22.851965"
+       x="526.41296"
+       y="1.3782227"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\menuButton.png"
+       inkscape:export-xdpi="50.800045"
+       inkscape:export-ydpi="50.800045" />
+    <rect
+       style="fill:#649bff;fill-opacity:1;stroke:#000000;stroke-width:3.65597;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill"
+       id="rect891"
+       width="234.46902"
+       height="22.802361"
+       x="-0.54624325"
+       y="270.79153"
+       rx="13.026056"
+       ry="11.401179"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\timeBar.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:#2ec27e;fill-opacity:1;stroke:#000000;stroke-width:3.65597;stroke-linecap:round;stroke-linejoin:round;paint-order:markers stroke fill"
+       id="rect1127"
+       width="234.46902"
+       height="22.802361"
+       x="-1.3259494"
+       y="306.65802"
+       rx="13.026056"
+       ry="11.401179"
+       inkscape:export-filename="C:\Users\travi\OneDrive\JET\Games\Tsunami Game\timeBarRemaining.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
