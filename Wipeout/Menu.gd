@@ -31,6 +31,16 @@ func _on_Quit_pressed():
 func _on_Play_pressed():
 	Globals.NumberOfTeams = $MainCT/VerCT/HorCT/TeamCT/NumberSlider.value
 	QP.reset_questions()
+	# Check if show points is pressed and set global for the game
+	if $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts.pressed:
+		Globals.showPoints = true
+	else:
+		Globals.showPoints = false
+	# Check if choose random is pressed and show pick random button in game
+	if $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom.pressed:
+		Globals.showPickBlock = true
+	else:
+		Globals.showPickBlock = false
 	get_tree().change_scene("res://Game.tscn")
 
 
@@ -79,3 +89,4 @@ func change_difficulty_text(level):
 	var textList = ["Super Easy!", "Easy", "Normal", "Hard", "CRAZY!"]
 	$MainCT/VerCT/HorCT/TeamCT/Difficulty.self_modulate = colorList[level]
 	$MainCT/VerCT/HorCT/TeamCT/Difficulty.text = textList[level]
+

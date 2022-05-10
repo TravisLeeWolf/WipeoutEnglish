@@ -22,6 +22,11 @@ func _ready():
 	
 	var revertScore = get_tree().get_root().find_node("Game", true, false)
 	revertScore.connect("revertScore", self, "revert_score")
+	
+	if Globals.showPoints:
+		$Container/ProgressBar/Score.visible = true
+	else:
+		$Container/ProgressBar/Score.visible = false
 
 func _process(_delta):
 	$Container/ProgressBar.value = myScore

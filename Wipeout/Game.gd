@@ -15,10 +15,13 @@ signal nextQuestion
 signal revertScore
 signal wipeout
 
+var blockList = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	OS.window_fullscreen = true
 	$MainCT/GameCT/GameBoardCT.columns = Globals.gridSize
+	blockList = []
 	
 	# Adding tiles to the board
 	var letters = ["A", "B", "C", "D"]
@@ -41,6 +44,10 @@ func _ready():
 			t.setTileText(tileName)
 #			t.connect("flipCard", self, "cardFlip")
 			$MainCT/GameCT/GameBoardCT.add_child(t)
+			# Add list of block to pick from
+			if Globals.showPickBlock:
+				blockList.append(tileName)
+			
 	# End adding tiles to the board
 	
 	# Adding 6 players to the board
@@ -52,6 +59,11 @@ func _ready():
 		
 	var selectedTeamColor = get_tree().get_root().find_node("Team", true, false)
 	selectedTeamColor.connect("changeListColor", self, "changeListColor")
+	
+	if Globals.showPickBlock:
+		$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.visible = true
+	else:
+		$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.visible = false
 	
 #func _process(_delta):
 #	$MainCT/GameCT/ButtonCT/YesNoCT/YesBTN.disabled = Globals.scoreBTN
@@ -102,3 +114,12 @@ func _on_Button_pressed():
 func _on_RevertBTN_pressed():
 	emit_signal("revertScore")
 
+
+
+func _on_PickRandom_pressed():
+	if len(blockList) != 0:
+		$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.text = blockList[randi() % (len(blockList)) ]
+		var toRemoveFromList = blockList.find($MainCT/GameCT/ButtonCT/CenterCT/PickRandom.text)
+		blockList.remove(toRemoveFromList)
+	else:
+		$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.visible = false

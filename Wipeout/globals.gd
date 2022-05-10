@@ -14,6 +14,8 @@ var teamMaxValue = 100
 var gridSize = 8
 var difficultyFactor = 2
 var selectedGrade = ""
+var showPoints = false
+var showPickBlock = false
 
 
 # Called when the node enters the scene tree for the first time.

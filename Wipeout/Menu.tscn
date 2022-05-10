@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Confirmation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://title.png" type="Texture" id=2]
@@ -10,8 +10,30 @@
 [ext_resource path="res://menu_bg.png" type="Texture" id=8]
 [ext_resource path="res://gradeButton.png" type="Texture" id=9]
 [ext_resource path="res://gradeButtonPressed.png" type="Texture" id=10]
+[ext_resource path="res://ARLRDBD.TTF" type="DynamicFontData" id=11]
 
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -63,7 +85,13 @@ margin_bottom = 586.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="QSet" type="OptionButton" parent="MainCT/VerCT/HorCT"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainCT/VerCT/HorCT"]
+margin_right = 408.0
+margin_bottom = 368.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QSet" type="OptionButton" parent="MainCT/VerCT/HorCT/VBoxContainer"]
 margin_right = 408.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
@@ -77,6 +105,87 @@ text = "Question Set"
 align = 1
 items = [ "Question Set", null, false, 0, null ]
 selected = 0
+
+[node name="HSeparator" type="HSeparator" parent="MainCT/VerCT/HorCT/VBoxContainer"]
+margin_top = 104.0
+margin_right = 408.0
+margin_bottom = 264.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionsCT" type="HBoxContainer" parent="MainCT/VerCT/HorCT/VBoxContainer"]
+margin_top = 268.0
+margin_right = 408.0
+margin_bottom = 368.0
+rect_min_size = Vector2( 408, 100 )
+
+[node name="ChooseRandom" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
+margin_right = 133.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "Auto
+Pick
+"
+align = 1
+valign = 1
+
+[node name="PickStudents2" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
+margin_left = 137.0
+margin_right = 270.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "Random
+Students
+"
+align = 1
+valign = 1
+
+[node name="ShowPts" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
+margin_left = 274.0
+margin_right = 408.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = SubResource( 4 )
+text = "Show
+Points
+"
+align = 1
+valign = 1
 
 [node name="VSeparator" type="VSeparator" parent="MainCT/VerCT/HorCT"]
 margin_left = 412.0
