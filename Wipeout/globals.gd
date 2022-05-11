@@ -10,6 +10,8 @@ var scoreBTN = false
 
 var NumberOfTeams = 6
 var teamMaxValue = 100
+var studentNumberList = []
+var pickStudents = false
 
 var gridSize = 8
 var difficultyFactor = 2

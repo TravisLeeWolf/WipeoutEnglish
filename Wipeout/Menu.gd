@@ -18,11 +18,6 @@ func _ready():
 		$MainCT/VerCT/HorCT/Grade.add_child(g)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Quit_pressed():
 	$Confirmation.set_message_text("Are you sure you want to exit the game?")
 	$Confirmation.popup()
@@ -42,8 +37,6 @@ func _on_Play_pressed():
 	else:
 		Globals.showPickBlock = false
 	get_tree().change_scene("res://Game.tscn")
-
-
 
 
 func _on_NumberSlider_value_changed(value):
@@ -83,10 +76,15 @@ func _on_DiffSlider_value_changed(value):
 		Globals.difficultyFactor = 5
 	else:
 		Globals.difficultyFactor = value
+
 		
 func change_difficulty_text(level):
 	var colorList = [Color.greenyellow, Color.dodgerblue, Color.white, Color.orange, Color.red]
 	var textList = ["Super Easy!", "Easy", "Normal", "Hard", "CRAZY!"]
 	$MainCT/VerCT/HorCT/TeamCT/Difficulty.self_modulate = colorList[level]
 	$MainCT/VerCT/HorCT/TeamCT/Difficulty.text = textList[level]
+
+
+func _on_PickStudents_pressed():
+	$ClassSize.popup()
 

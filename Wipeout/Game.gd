@@ -1,9 +1,5 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var tile = preload("res://Tile.tscn")
 onready var team = preload("res://Team.tscn")
 onready var wipeout = preload("res://Wipeout.tscn")
