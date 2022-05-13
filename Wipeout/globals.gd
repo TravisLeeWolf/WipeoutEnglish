@@ -1,9 +1,10 @@
 extends Node
+"""
+Variables to be used accross scenes for setting up the game and keeping track of changes
+"""
+# For use in the menu and question picker
+var GRADES = ["ES 1st", "ES 2nd", "ES 3rd", "ES 4th", "ES 5th", "ES 6th", "JHS 1st", "JHS 2nd", "JHS 3rd"]
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var currentScore
 var currentTeam = 0
 var scoreBTN = false
@@ -15,16 +16,11 @@ var pickStudents = false
 
 var gridSize = 8
 var difficultyFactor = 2
-var selectedGrade = ""
+var selectedGrade = 0
 var showPoints = false
 var showPickBlock = false
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("Globals loaded")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

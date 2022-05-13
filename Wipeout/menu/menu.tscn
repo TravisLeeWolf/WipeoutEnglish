@@ -1,0 +1,454 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://confirmation/confirmation.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/gfx/logos/title.png" type="Texture" id=2]
+[ext_resource path="res://menu/menu_button_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menu/menu.gd" type="Script" id=4]
+[ext_resource path="res://assets/gfx/misc/grabber.png" type="Texture" id=5]
+[ext_resource path="res://assets/gfx/buttons/menu_button.png" type="Texture" id=6]
+[ext_resource path="res://menu/question_set_box.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/gfx/backgrounds/menu_background.png" type="Texture" id=8]
+[ext_resource path="res://assets/gfx/buttons/grade_button.png" type="Texture" id=9]
+[ext_resource path="res://assets/gfx/buttons/grade_button_pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/fonts/simple_rounded.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://menu/class_size.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.392157, 0.607843, 1, 1 )
+
+[node name="Waves" type="TextureRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="MainCT" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VerCT" type="VBoxContainer" parent="MainCT"]
+margin_right = 1260.0
+margin_bottom = 704.0
+
+[node name="TitlePic" type="TextureRect" parent="MainCT/VerCT"]
+margin_right = 1260.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 200 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="HSplit2" type="HSeparator" parent="MainCT/VerCT"]
+margin_top = 204.0
+margin_right = 1260.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="HorCT" type="HBoxContainer" parent="MainCT/VerCT"]
+margin_top = 218.0
+margin_right = 1260.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainCT/VerCT/HorCT"]
+margin_right = 408.0
+margin_bottom = 368.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QSet" type="OptionButton" parent="MainCT/VerCT/HorCT/VBoxContainer"]
+margin_right = 408.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
+text = "Question Set"
+align = 1
+items = [ "Question Set", null, false, 0, null ]
+selected = 0
+
+[node name="HSeparator" type="HSeparator" parent="MainCT/VerCT/HorCT/VBoxContainer"]
+margin_top = 104.0
+margin_right = 408.0
+margin_bottom = 264.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OptionsCT" type="HBoxContainer" parent="MainCT/VerCT/HorCT/VBoxContainer"]
+margin_top = 268.0
+margin_right = 408.0
+margin_bottom = 368.0
+rect_min_size = Vector2( 408, 100 )
+
+[node name="ChooseRandom" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
+margin_right = 133.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "Auto
+Pick
+"
+align = 1
+valign = 1
+
+[node name="PickStudents" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
+margin_left = 137.0
+margin_right = 270.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "Random
+Students
+"
+align = 1
+valign = 1
+
+[node name="ShowPts" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
+margin_left = 274.0
+margin_right = 408.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = SubResource( 4 )
+text = "Show
+Points
+"
+align = 1
+valign = 1
+
+[node name="VSeparator" type="VSeparator" parent="MainCT/VerCT/HorCT"]
+margin_left = 412.0
+margin_right = 422.0
+margin_bottom = 368.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="Grade" type="GridContainer" parent="MainCT/VerCT/HorCT"]
+margin_left = 426.0
+margin_right = 834.0
+margin_bottom = 368.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="VSeparator2" type="VSeparator" parent="MainCT/VerCT/HorCT"]
+margin_left = 838.0
+margin_right = 848.0
+margin_bottom = 368.0
+rect_min_size = Vector2( 10, 0 )
+
+[node name="TeamCT" type="VBoxContainer" parent="MainCT/VerCT/HorCT"]
+margin_left = 852.0
+margin_right = 1260.0
+margin_bottom = 368.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Difficulty" type="Label" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_right = 408.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 3 )
+text = "Normal"
+align = 1
+valign = 1
+
+[node name="DiffSlider" type="HSlider" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_top = 51.0
+margin_right = 408.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 0, 50 )
+custom_icons/grabber_disabled = ExtResource( 5 )
+custom_icons/grabber_highlight = ExtResource( 5 )
+custom_icons/grabber = ExtResource( 5 )
+max_value = 4.0
+value = 2.0
+rounded = true
+tick_count = 6
+ticks_on_borders = true
+
+[node name="HSeparator2" type="HSeparator" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_top = 105.0
+margin_right = 408.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="Count" type="Label" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_top = 134.0
+margin_right = 408.0
+margin_bottom = 181.0
+custom_fonts/font = ExtResource( 3 )
+text = "Teams"
+align = 1
+valign = 1
+
+[node name="NumberSlider" type="HSlider" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_top = 185.0
+margin_right = 408.0
+margin_bottom = 235.0
+rect_min_size = Vector2( 0, 50 )
+custom_icons/grabber_disabled = ExtResource( 5 )
+custom_icons/grabber_highlight = ExtResource( 5 )
+custom_icons/grabber = ExtResource( 5 )
+min_value = 1.0
+max_value = 6.0
+value = 6.0
+rounded = true
+tick_count = 6
+ticks_on_borders = true
+
+[node name="HSeparator" type="HSeparator" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_top = 239.0
+margin_right = 408.0
+margin_bottom = 264.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="GridCT" type="HBoxContainer" parent="MainCT/VerCT/HorCT/TeamCT"]
+margin_top = 268.0
+margin_right = 408.0
+margin_bottom = 368.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="FourGrid" type="TextureButton" parent="MainCT/VerCT/HorCT/TeamCT/GridCT"]
+margin_right = 133.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/TeamCT/GridCT/FourGrid"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = ExtResource( 3 )
+text = "3x4
+"
+align = 1
+valign = 1
+
+[node name="SixGrid" type="TextureButton" parent="MainCT/VerCT/HorCT/TeamCT/GridCT"]
+margin_left = 137.0
+margin_right = 270.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/TeamCT/GridCT/SixGrid"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = ExtResource( 3 )
+text = "3x6
+"
+align = 1
+valign = 1
+
+[node name="EightGrid" type="TextureButton" parent="MainCT/VerCT/HorCT/TeamCT/GridCT"]
+margin_left = 274.0
+margin_right = 408.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/TeamCT/GridCT/EightGrid"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 25.0
+custom_fonts/font = ExtResource( 3 )
+text = "4x8
+"
+align = 1
+valign = 1
+
+[node name="HSplit" type="HSeparator" parent="MainCT/VerCT"]
+margin_top = 590.0
+margin_right = 1260.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="ButtonCT" type="HBoxContainer" parent="MainCT/VerCT"]
+margin_top = 604.0
+margin_right = 1260.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+
+[node name="Quit" type="TextureButton" parent="MainCT/VerCT/ButtonCT"]
+margin_right = 417.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="MainCT/VerCT/ButtonCT/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Quit"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Maker" type="TextureButton" parent="MainCT/VerCT/ButtonCT"]
+margin_left = 421.0
+margin_right = 838.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="MainCT/VerCT/ButtonCT/Maker"]
+self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Question Maker"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Settings" type="Button" parent="MainCT/VerCT/ButtonCT"]
+visible = false
+margin_left = 632.0
+margin_right = 944.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Settings"
+
+[node name="Play" type="TextureButton" parent="MainCT/VerCT/ButtonCT"]
+margin_left = 842.0
+margin_right = 1260.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+expand = true
+
+[node name="Label" type="Label" parent="MainCT/VerCT/ButtonCT/Play"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Play!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Confirmation" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="ClassSize" parent="." instance=ExtResource( 12 )]
+margin_left = 320.0
+margin_top = 180.0
+margin_right = -320.0
+margin_bottom = -180.0
+
+[connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents" to="." method="_on_PickStudents_pressed"]
+[connection signal="value_changed" from="MainCT/VerCT/HorCT/TeamCT/DiffSlider" to="." method="_on_DiffSlider_value_changed"]
+[connection signal="value_changed" from="MainCT/VerCT/HorCT/TeamCT/NumberSlider" to="." method="_on_NumberSlider_value_changed"]
+[connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/FourGrid" to="." method="_on_FourGrid_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/SixGrid" to="." method="_on_SixGrid_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/EightGrid" to="." method="_on_EightGrid_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/ButtonCT/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/ButtonCT/Maker" to="." method="_on_Maker_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/ButtonCT/Play" to="." method="_on_Play_pressed"]

@@ -1,0 +1,194 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/simple_rounded.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://question_maker/pic_uploader.tscn" type="PackedScene" id=2]
+[ext_resource path="res://question_maker/question_maker.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="QuestionMaker" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.392157, 0.607843, 1, 1 )
+
+[node name="VerCT" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="TitleCT" type="HBoxContainer" parent="VerCT"]
+margin_right = 1260.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Title" type="Label" parent="VerCT/TitleCT"]
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Question Maker"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VSeparator" type="VSeparator" parent="VerCT/TitleCT"]
+margin_left = 204.0
+margin_right = 229.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 25, 0 )
+
+[node name="Message" type="Label" parent="VerCT/TitleCT"]
+margin_left = 233.0
+margin_right = 1260.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "This is where you'll get notes on how to make a new question."
+valign = 1
+autowrap = true
+
+[node name="MakerCT" type="VBoxContainer" parent="VerCT"]
+margin_top = 104.0
+margin_right = 1260.0
+margin_bottom = 596.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TopicCT" type="HBoxContainer" parent="VerCT/MakerCT"]
+margin_right = 1260.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="OptionButton" type="OptionButton" parent="VerCT/MakerCT/TopicCT"]
+margin_right = 434.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 434, 0 )
+
+[node name="VSeparator" type="VSeparator" parent="VerCT/MakerCT/TopicCT"]
+margin_left = 438.0
+margin_right = 456.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 18, 0 )
+
+[node name="Button" type="Button" parent="VerCT/MakerCT/TopicCT"]
+margin_left = 460.0
+margin_right = 619.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 3 )
+text = "Add New Topic"
+
+[node name="QuesCT" type="HBoxContainer" parent="VerCT/MakerCT"]
+margin_top = 54.0
+margin_right = 1260.0
+margin_bottom = 492.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Picture" type="ColorRect" parent="VerCT/MakerCT/QuesCT"]
+margin_right = 434.0
+margin_bottom = 438.0
+size_flags_horizontal = 3
+
+[node name="VSeparator" type="VSeparator" parent="VerCT/MakerCT/QuesCT"]
+margin_left = 438.0
+margin_right = 456.0
+margin_bottom = 438.0
+rect_min_size = Vector2( 18, 0 )
+
+[node name="TextEdit" type="TextEdit" parent="VerCT/MakerCT/QuesCT"]
+margin_left = 460.0
+margin_right = 1260.0
+margin_bottom = 438.0
+rect_min_size = Vector2( 800, 0 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Write your question here..."
+
+[node name="ButtonCT" type="HBoxContainer" parent="VerCT"]
+margin_top = 600.0
+margin_right = 1260.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Back" type="Button" parent="VerCT/ButtonCT"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = SubResource( 5 )
+text = "Back"
+clip_text = true
+
+[node name="VSeparator" type="VSeparator" parent="VerCT/ButtonCT"]
+margin_left = 104.0
+margin_right = 329.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 225, 0 )
+
+[node name="Upload" type="Button" parent="VerCT/ButtonCT"]
+margin_left = 333.0
+margin_right = 433.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = SubResource( 5 )
+text = "Upload"
+clip_text = true
+
+[node name="VSeparator2" type="VSeparator" parent="VerCT/ButtonCT"]
+margin_left = 437.0
+margin_right = 1052.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 20, 0 )
+size_flags_horizontal = 3
+
+[node name="Reset" type="Button" parent="VerCT/ButtonCT"]
+margin_left = 1056.0
+margin_right = 1156.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = SubResource( 5 )
+text = "Reset"
+clip_text = true
+
+[node name="Add" type="Button" parent="VerCT/ButtonCT"]
+margin_left = 1160.0
+margin_right = 1260.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+custom_fonts/font = SubResource( 5 )
+text = "Add"
+clip_text = true
+
+[node name="PicUpload" parent="." instance=ExtResource( 2 )]
+
+[connection signal="pressed" from="VerCT/ButtonCT/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="VerCT/ButtonCT/Upload" to="." method="_on_Upload_pressed"]

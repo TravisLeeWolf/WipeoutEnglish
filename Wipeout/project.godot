@@ -11,13 +11,13 @@ config_version=4
 [application]
 
 config/name="Wipeout English"
-run/main_scene="res://Menu.tscn"
+run/main_scene="res://menu/menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://globals.gd"
-QP="*res://QuestionPicker.gd"
+QP="*res://questioner/question_picker.gd"
 
 [display]
 
