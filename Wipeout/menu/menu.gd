@@ -14,19 +14,23 @@ NOTE: The question set is still a work in progress.
 signal question_maker_message_sent
 
 onready var grade_button = preload("res://menu/grade_button.tscn")
+onready var grades: Array = Globals.GRADES.keys()
 
 
-"""Adds the buttons to select the grade and assigns name from Global.GRADES"""
+"""
+Adds the buttons to select the grade and assigns name from Global.GRADES
+"""
 func _ready():
-	for i in range(len(Globals.GRADES)):
+	for i in range(len(grades)):
 		var grade = grade_button.instance()
-		grade.setButtonText(Globals.GRADES[i])
+		grade.set_button_text(grades[i])
 		$MainCT/VerCT/HorCT/Grade.add_child(grade)
 
-"""Sets all the variables for the game layout in the globals.gd script"""
+"""
+Sets all the variables for the game layout in the globals.gd script
+"""
 func _on_Play_pressed():
 	Globals.NumberOfTeams = $MainCT/VerCT/HorCT/TeamCT/NumberSlider.value
-	QP.reset_questions()
 	# Check if show points is pressed and set global for the game
 	if $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts.pressed:
 		Globals.showPoints = true
@@ -39,27 +43,38 @@ func _on_Play_pressed():
 		Globals.showPickBlock = false
 	if not $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents.pressed:
 		Globals.pickStudents = false
+	QP.reset_questions()
 	get_tree().change_scene("res://game/game.tscn")
 
-
+"""
+Confirmation message to exit the game
+"""
 func _on_Quit_pressed():
 	$Confirmation.set_message_text("Are you sure you want to exit the game?")
 	$Confirmation.popup()
 
-
+"""
+Displays the number of teams to pick when moving the teams slider
+"""
 func _on_NumberSlider_value_changed(value):
 	if value == 1:
 		$MainCT/VerCT/HorCT/TeamCT/Count.text = "1 Team"
 	else:
 		$MainCT/VerCT/HorCT/TeamCT/Count.text = str(value) + " Teams"
 
-
+"""
+Message about the question maker
+NOTE: To be depreciated for web API
+"""
 func _on_Maker_pressed():
 	emit_signal("makerPopup")
 	# Remove comment when question maker is functional
 #	get_tree().change_scene("res://QuestionMaker.tscn")
 
-
+"""
+Buttons for grid size of the game
+NOTE: Can be implemented into it's own class so code doesn't need to be written over again
+"""
 func _on_FourGrid_pressed():
 	Globals.gridSize = 4
 	$MainCT/VerCT/HorCT/TeamCT/GridCT/SixGrid.pressed = false
@@ -75,7 +90,9 @@ func _on_EightGrid_pressed():
 	$MainCT/VerCT/HorCT/TeamCT/GridCT/FourGrid.pressed = false
 	$MainCT/VerCT/HorCT/TeamCT/GridCT/SixGrid.pressed = false
 
-
+"""
+Sets the game difficulty when the slider's value is changed
+"""
 func _on_DiffSlider_value_changed(value):
 	change_difficulty_text(value)
 	if value == 0:
@@ -85,11 +102,15 @@ func _on_DiffSlider_value_changed(value):
 	else:
 		Globals.difficultyFactor = value
 
-
+"""
+Opens the popup to set number of stundets from stundet numbers
+"""
 func _on_PickStudents_pressed():
 	$ClassSize.popup()
 
-	
+"""
+As the difficulty slider's value changes, display the level of difficulty
+"""	
 func change_difficulty_text(level):
 	var colorList = [Color.greenyellow, Color.dodgerblue, Color.white, Color.orange, Color.red]
 	var textList = ["Super Easy!", "Easy", "Normal", "Hard", "CRAZY!"]

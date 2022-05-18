@@ -295,7 +295,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
 custom_fonts/font = ExtResource( 3 )
-text = "3x4
+text = "4x3
 "
 align = 1
 valign = 1
@@ -317,7 +317,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
 custom_fonts/font = ExtResource( 3 )
-text = "3x6
+text = "6x4
 "
 align = 1
 valign = 1
@@ -339,7 +339,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 25.0
 custom_fonts/font = ExtResource( 3 )
-text = "4x8
+text = "8x4
 "
 align = 1
 valign = 1

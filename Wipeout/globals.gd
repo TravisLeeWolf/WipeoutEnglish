@@ -3,7 +3,29 @@ extends Node
 Variables to be used accross scenes for setting up the game and keeping track of changes
 """
 # For use in the menu and question picker
-var GRADES = ["ES 1st", "ES 2nd", "ES 3rd", "ES 4th", "ES 5th", "ES 6th", "JHS 1st", "JHS 2nd", "JHS 3rd"]
+var GRADES = {
+	"ES 1st": 1,
+	"ES 2nd": 2,
+	"ES 3rd": 3,
+	"ES 4th": 4,
+	"ES 5th": 5,
+	"ES 6th": 6,
+	"JHS 1st": 7,
+	"JHS 2nd": 8,
+	"JHS 3rd": 9
+}
+
+# Game settings dictonary to contain all settings in the menu with defaults set
+var game_settings: Dictionary = {
+	"question_set": "Daily",
+	"difficulty": 2,
+	"number_of_teams": 6,
+	"grid_size": 8,
+	"grade": 6,
+	"show_points": false,
+	"auto_pick": false,
+	"random_students": [],
+}
 
 var currentScore
 var currentTeam = 0
@@ -22,5 +44,5 @@ var showPickBlock = false
 
 
 func _ready():
-	print("Globals loaded")
+	pass
 

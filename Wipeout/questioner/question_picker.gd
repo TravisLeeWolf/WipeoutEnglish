@@ -60,16 +60,17 @@ func _ready():
 
 	
 func reset_questions():
+	var grade: int = Globals.game_settings["grade"]
 	questionSet = []
 	counter = 0
 	add_questions_to_set(main_questions)
 	setLength = len(questionSet)
-	if Globals.selectedGrade <= 2:
+	if grade <= 2:
 		add_questions_to_set(animalSet)
 		add_questions_to_set(fruit_set)
-	elif Globals.selectedGrade >= 3 and Globals.selectedGrade <= 4:
+	elif grade >= 3 and grade <= 4:
 		add_questions_to_set(thirdfourth_daily_questions)
-	elif Globals.selectedGrade >= 5:
+	elif grade >= 5:
 		add_questions_to_set(daily_questions)
 	
 	
@@ -84,6 +85,8 @@ func add_questions_to_set(listOfQuestions):
 
 
 func pick_a_question():
+	if questionSet == []:
+		reset_questions()
 	var question = []
 	var choice = counter
 	var topic = " | "
@@ -99,7 +102,7 @@ func pick_a_question():
 		for t in questionSet[choice][2]:
 			topic = topic + t.capitalize() + " | "	
 		question = [topic, choice, questionSet[choice][1], questionSet[choice][0]]
-	
+	questionSet.remove(choice)
 	return question
 
 # Not used
