@@ -14,17 +14,21 @@ NOTE: The question set is still a work in progress.
 signal question_maker_message_sent
 
 onready var grade_button = preload("res://menu/grade_button.tscn")
-onready var grades: Array = Globals.GRADES.keys()
+onready var grades: Array = Globals.GRADES
 
 
 """
 Adds the buttons to select the grade and assigns name from Global.GRADES
 """
 func _ready():
-	for i in range(len(grades)):
-		var grade = grade_button.instance()
-		grade.set_button_text(grades[i])
-		$MainCT/VerCT/HorCT/Grade.add_child(grade)
+	set_language_button()
+	setup_menu_text()
+	update_leftover_text()
+#	for i in range(len(grades)):
+#		var grade = grade_button.instance()
+#		grade.set_button_text(grades[i])
+#		$MainCT/VerCT/HorCT/Grade.add_child(grade)
+	reset_grade_buttons()
 
 """
 Sets all the variables for the game layout in the globals.gd script
@@ -50,7 +54,8 @@ func _on_Play_pressed():
 Confirmation message to exit the game
 """
 func _on_Quit_pressed():
-	$Confirmation.set_message_text("Are you sure you want to exit the game?")
+#	$Confirmation.set_message_text("Are you sure you want to exit the game?")
+	$Confirmation.set_message_text("GAME_EXIT_MESSAGE")
 	$Confirmation.popup()
 
 """
@@ -58,9 +63,9 @@ Displays the number of teams to pick when moving the teams slider
 """
 func _on_NumberSlider_value_changed(value):
 	if value == 1:
-		$MainCT/VerCT/HorCT/TeamCT/Count.text = "1 Team"
+		$MainCT/VerCT/HorCT/TeamCT/Count.text = "1 " + tr("TEAM_TEXT")
 	else:
-		$MainCT/VerCT/HorCT/TeamCT/Count.text = str(value) + " Teams"
+		$MainCT/VerCT/HorCT/TeamCT/Count.text = str(value) + " " + tr("TEAM_TEXT")
 
 """
 Message about the question maker
@@ -113,7 +118,58 @@ As the difficulty slider's value changes, display the level of difficulty
 """	
 func change_difficulty_text(level):
 	var colorList = [Color.greenyellow, Color.dodgerblue, Color.white, Color.orange, Color.red]
-	var textList = ["Super Easy!", "Easy", "Normal", "Hard", "CRAZY!"]
+#	var textList = ["Super Easy!", "Easy", "Normal", "Hard", "CRAZY!"]
+	var textList = tr("DIFFICULTY_SETTING_TEXT").split("*")
 	$MainCT/VerCT/HorCT/TeamCT/Difficulty.self_modulate = colorList[level]
 	$MainCT/VerCT/HorCT/TeamCT/Difficulty.text = textList[level]
+
+
+"""
+Toggles between the language options for display and button text
+"""
+func _on_LanguageButton_toggled(button_pressed):
+	if button_pressed:
+		LanguageManager.update_language("ja")
+		Globals.english_on = false
+	elif not button_pressed:
+		LanguageManager.update_language("en")
+		Globals.english_on = true
+	update_leftover_text()
+	reset_grade_buttons()
+
+
+func setup_menu_text():
+	$MainCT/VerCT/HorCT/VBoxContainer/QSet.set_item_text(0, "QUESTION_SET_BOX")
+	$MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom/Label.text = "AUTO_PICK_BUTTON"
+	$MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents/Label.text = "RANDOM_STUDENTS_BUTTON"
+	$MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts/Label.text = "SHOW_POINTS_BUTTON"
+	$MainCT/VerCT/ButtonCT/Quit/Label.text = "EXIT_BUTTON"
+	$MainCT/VerCT/ButtonCT/Maker/Label.text = "QUESTION_MAKER_BUTTON"
+	$MainCT/VerCT/ButtonCT/Play/Label.text = "START_BUTTON"
+	$MainCT/VerCT/HorCT/TeamCT/Count.text = "TEAM_TEXT"
+	
+	
+func update_leftover_text():
+	var difficultyList = tr("DIFFICULTY_SETTING_TEXT").split("*")
+	$MainCT/VerCT/HorCT/TeamCT/Difficulty.text = difficultyList[2]
+	Globals.update_grades_text()
+	
+func set_language_button():
+	if Globals.english_on:
+		$MainCT/VerCT/HeadBox/LanguageButton.pressed = false
+	else:
+		$MainCT/VerCT/HeadBox/LanguageButton.pressed = true
+
+func setup_grade_buttons():
+	for i in range(9):
+		var grade = grade_button.instance()
+		grade.set_button_text(grades[i])
+		grade.set_button_value(i)
+		$MainCT/VerCT/HorCT/Grade.add_child(grade)
+		
+func reset_grade_buttons():
+	for node in $MainCT/VerCT/HorCT/Grade.get_children():
+		$MainCT/VerCT/HorCT/Grade.remove_child(node)
+		node.queue_free()
+	setup_grade_buttons()
 

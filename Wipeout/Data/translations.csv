@@ -1,0 +1,25 @@
+id,en,ja
+QUESTION_SET_BOX,Question Set,問題集 
+GRADE_BUTTON,ES 1st*ES 2nd*ES 3rd*ES 4th*ES 5th*ES 6th*JHS 1st*JHS 2nd*JHS 3rd,小1*小2*小3*小4*小5*小6*中1*中2*中3 
+DIFFICULTY_SETTING_TEXT,Super Easy!*Easy*Normal*Hard*CRAZY! ,ばつ無し*優しい*ふつう*難しい*クレージー！
+TEAM_TEXT,Teams,チーム 
+AUTO_PICK_BUTTON,Auto Pick,自動で選ぶ
+RANDOM_STUDENTS_BUTTON,Random Students,ランダム生徒
+SHOW_POINTS_BUTTON,Show Points,点数を見せる
+EXIT_BUTTON,Quit,終わり
+QUESTION_MAKER_BUTTON,Question Maker,問題メーカー
+START_BUTTON,Play!,始めましょう！
+GAME_EXIT_MESSAGE,Are you sure you want to exit the game?,ゲームを終了してもよろしいですか？ 
+TEAM_BANNER_TEXT,Team,チーム 
+PICK_TEAM_BOX,Pick Team,チームを選ぶ
+NEXT_QUESTION_BUTTON,Next Question,つぎの問題
+RANDOM_BLOCK_BUTTON,Pick Random,カードを選ぶ
+FINISH_GAME_BUTTON,Finish Game,終わり
+FINISH_GAME_MESSAGE,Exit the game and return to menu?,ゲームを終えてメインメニューに戻りますか？
+SHOW_HINT_BUTTON,Show Hint,ヒントを見せる
+PICK_CLASS_SIZE,Pick the class size,クラスサイズを選択します 
+LAST_STUDENT_NUMBER,Last Student’s Number,最後の生徒の出席番号
+ADD_GAP,Add gap,数字と数字の間に 
+GAP_SKIP_TEXT,Numbers to skip,スキップする番号 
+GAP_START,Start,開始
+GAP_END,Stop,終了

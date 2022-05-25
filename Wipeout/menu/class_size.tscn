@@ -5,19 +5,20 @@
 [ext_resource path="res://menu/class_size.gd" type="Script" id=3]
 [ext_resource path="res://menu/label_font_style.tres" type="DynamicFont" id=4]
 [ext_resource path="res://menu/menu_button_font.tres" type="DynamicFont" id=5]
-[ext_resource path="res://assets/fonts/simple_rounded.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/fonts/MochiyPopOne-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/gfx/buttons/okay_button.png" type="Texture" id=7]
 [ext_resource path="res://assets/gfx/buttons/revert_button.png" type="Texture" id=8]
 [ext_resource path="res://assets/gfx/buttons/menu_button.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
-size = 25
+size = 20
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 6 )
 
 [node name="ClassSize" type="Popup"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -640.0
@@ -40,19 +41,19 @@ margin_bottom = -25.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 590.0
-margin_bottom = 310.0
+margin_bottom = 361.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_right = 590.0
-margin_bottom = 47.0
+margin_bottom = 44.0
 custom_fonts/font = ExtResource( 5 )
 text = "Pick the class size"
 align = 1
 
 [node name="ClassSize" type="HSlider" parent="MarginContainer/VBoxContainer"]
-margin_top = 51.0
+margin_top = 48.0
 margin_right = 590.0
-margin_bottom = 71.0
+margin_bottom = 68.0
 custom_icons/grabber_disabled = ExtResource( 2 )
 custom_icons/grabber_highlight = ExtResource( 2 )
 custom_icons/grabber = ExtResource( 2 )
@@ -62,15 +63,15 @@ value = 1.0
 tick_count = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 75.0
+margin_top = 72.0
 margin_right = 590.0
-margin_bottom = 85.0
+margin_bottom = 82.0
 rect_min_size = Vector2( 0, 10 )
 
 [node name="GapButtonCT" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 89.0
+margin_top = 86.0
 margin_right = 590.0
-margin_bottom = 142.0
+margin_bottom = 139.0
 
 [node name="SetGap" type="TextureButton" parent="MarginContainer/VBoxContainer/GapButtonCT"]
 margin_left = 213.0
@@ -84,34 +85,33 @@ texture_normal = ExtResource( 9 )
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GapButtonCT"]
-margin_left = 244.0
+margin_left = 249.0
 margin_top = 11.0
-margin_right = 346.0
+margin_right = 341.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 1 )
 text = "Add gap"
 
 [node name="GapSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
-margin_top = 89.0
+margin_top = 143.0
 margin_right = 590.0
-margin_bottom = 192.0
+margin_bottom = 249.0
 
 [node name="GapLabel" type="Label" parent="MarginContainer/VBoxContainer/GapSettings"]
 margin_right = 590.0
-margin_bottom = 47.0
+margin_bottom = 44.0
 custom_fonts/font = ExtResource( 5 )
 text = "Gap to skip"
 align = 1
 
 [node name="StartGap" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GapSettings"]
-margin_top = 51.0
+margin_top = 48.0
 margin_right = 590.0
 margin_bottom = 75.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GapSettings/StartGap"]
 margin_right = 75.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 75, 0 )
 custom_fonts/font = ExtResource( 4 )
 text = "Start"
@@ -120,7 +120,7 @@ align = 1
 [node name="StartGap" type="HSlider" parent="MarginContainer/VBoxContainer/GapSettings/StartGap"]
 margin_left = 79.0
 margin_right = 590.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -136,11 +136,11 @@ tick_count = 1
 [node name="StopGap" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GapSettings"]
 margin_top = 79.0
 margin_right = 590.0
-margin_bottom = 103.0
+margin_bottom = 106.0
 
 [node name="StopGap" type="HSlider" parent="MarginContainer/VBoxContainer/GapSettings/StopGap"]
 margin_right = 511.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_icons/grabber_disabled = ExtResource( 2 )
@@ -154,22 +154,22 @@ tick_count = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GapSettings/StopGap"]
 margin_left = 515.0
 margin_right = 590.0
-margin_bottom = 24.0
+margin_bottom = 27.0
 rect_min_size = Vector2( 75, 0 )
 custom_fonts/font = ExtResource( 4 )
 text = "Stop"
 align = 1
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 146.0
+margin_top = 253.0
 margin_right = 590.0
-margin_bottom = 206.0
+margin_bottom = 257.0
 size_flags_vertical = 3
 
 [node name="ButtonCT" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 210.0
+margin_top = 261.0
 margin_right = 590.0
-margin_bottom = 310.0
+margin_bottom = 361.0
 rect_min_size = Vector2( 0, 100 )
 alignment = 1
 

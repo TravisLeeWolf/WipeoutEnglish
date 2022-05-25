@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/gfx/buttons/revert_button.png" type="Texture" id=1]
 [ext_resource path="res://assets/gfx/buttons/okay_button.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/gfx/misc/time_left_bar_background.png" type="Texture" id=6]
 [ext_resource path="res://assets/gfx/misc/time_left_bar.png" type="Texture" id=7]
 [ext_resource path="res://assets/gfx/boxes/student_number_box.png" type="Texture" id=8]
+[ext_resource path="res://menu/label_font_style.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/fonts/MochiyPopOne-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -18,7 +20,18 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=2]
 size = 50
 outline_size = 5
-font_data = ExtResource( 4 )
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://assets/fonts/MochiyPopOne-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = SubResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 125
@@ -87,19 +100,43 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[node name="Question" type="Label" parent="Background/VertCT/ContentCT"]
+[node name="TextBox" type="VBoxContainer" parent="Background/VertCT/ContentCT"]
 margin_left = 516.0
 margin_right = 1260.0
 margin_bottom = 542.0
-rect_min_size = Vector2( 0, 512 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+
+[node name="Question" type="Label" parent="Background/VertCT/ContentCT/TextBox"]
+margin_right = 744.0
+margin_bottom = 505.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "Write the question here."
 align = 1
 valign = 1
 autowrap = true
+
+[node name="HintText" type="Label" parent="Background/VertCT/ContentCT/TextBox"]
+visible = false
+margin_top = 506.0
+margin_right = 744.0
+margin_bottom = 542.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+text = "Hint text"
+align = 1
+autowrap = true
+
+[node name="HintButton" type="Button" parent="Background/VertCT/ContentCT/TextBox"]
+margin_left = 316.0
+margin_top = 509.0
+margin_right = 428.0
+margin_bottom = 542.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 9 )
+text = "Show hint"
 
 [node name="ButtonCT" type="HBoxContainer" parent="Background/VertCT"]
 margin_top = 600.0
@@ -173,5 +210,9 @@ valign = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ShowChosenStudent = SubResource( 4 )
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="Background/VertCT/ContentCT/TextBox/HintButton" to="." method="_on_HintButton_pressed"]
 [connection signal="pressed" from="Background/VertCT/ButtonCT/AnotherQBTN" to="." method="_on_AnotherQBTN_pressed"]
 [connection signal="pressed" from="Background/VertCT/ButtonCT/OkayBTN" to="." method="_on_OkayBTN_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

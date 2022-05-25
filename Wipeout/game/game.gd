@@ -19,6 +19,7 @@ var blockList = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	setup_button_text()
 	OS.window_fullscreen = true
 	$MainCT/GameCT/GameBoardCT.columns = Globals.gridSize
 	blockList = []
@@ -55,7 +56,7 @@ func _ready():
 		var te = team.instance()
 		te.setTeam(i)
 		$MainCT/HeadCT/ProgressCT.add_child(te)	
-		$MainCT/GameCT/ButtonCT/PickTeamBTN.add_item(("Team " + str(i + 1)), i + 1) # Add teams to PickTeamBT
+		$MainCT/GameCT/ButtonCT/PickTeamBTN.add_item((tr("TEAM_BANNER_TEXT") + " " + str(i + 1)), i + 1) # Add teams to PickTeamBT
 		
 	var selectedTeamColor = get_tree().get_root().find_node("Team", true, false)
 	selectedTeamColor.connect("changeListColor", self, "changeListColor")
@@ -97,7 +98,8 @@ func _on_Timer_timeout():
 
 
 func _on_FinishGameBTN_pressed():
-	$Confirmation.set_message_text("Exit the game and return to menu?")
+#	$Confirmation.set_message_text("Exit the game and return to menu?")
+	$Confirmation.set_message_text("FINISH_GAME_MESSAGE")
 	$Confirmation.popup()
 	
 func _input(event):
@@ -124,3 +126,18 @@ func _on_PickRandom_pressed():
 		blockList.remove(toRemoveFromList)
 	else:
 		$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.visible = false
+		
+		
+func setup_button_text():
+	$MainCT/GameCT/ButtonCT/PickTeamBTN.set_item_text(0, "PICK_TEAM_BOX")
+	$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.text = "RANDOM_BLOCK_BUTTON"
+	$MainCT/GameCT/ButtonCT/NextQuestionBTN/Label.text = "NEXT_QUESTION_BUTTON"
+	$MainCT/GameCT/ButtonCT/FinishGameBTN/Label.text = "FINISH_GAME_BUTTON"
+
+
+
+
+
+
+
+

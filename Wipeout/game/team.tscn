@@ -1,18 +1,19 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/team.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/coin.wav" type="AudioStream" id=2]
 [ext_resource path="res://game/team_bar_color.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/fonts/MochiyPopOne-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="DynamicFontData" id=4]
 font_path = "res://assets/fonts/simple_rounded.ttf"
-
-[sub_resource type="DynamicFont" id=1]
-size = 20
-outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 4 )
-
-[sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="DynamicFont" id=3]
 size = 20

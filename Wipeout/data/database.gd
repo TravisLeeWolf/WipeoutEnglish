@@ -2,7 +2,7 @@ extends Node
 
 const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
 var db
-var db_name = "res://Data/questions"
+var db_name = "res://data/questions"
 
 
 func _ready():

@@ -1,24 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://menu/grade_button.gd" type="Script" id=1]
-
-[sub_resource type="StreamTexture" id=2]
-flags = 4
-load_path = "res://.import/gradeButton.png-32689278123560f14efeacf64d394b9a.stex"
-
-[sub_resource type="StreamTexture" id=3]
-flags = 4
-load_path = "res://.import/gradeButtonPressed.png-604d3e0e977cbaee1243f5f13c4ec941.stex"
-
-[sub_resource type="DynamicFontData" id=4]
-font_path = "res://assets/fonts/simple_rounded.ttf"
+[ext_resource path="res://assets/gfx/buttons/grade_button.png" type="Texture" id=2]
+[ext_resource path="res://assets/gfx/buttons/grade_button_pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/MochiyPopOne-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
+size = 25
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = SubResource( 4 )
+font_data = ExtResource( 4 )
 
 [node name="GradeBTN" type="TextureButton"]
 anchor_right = 1.0
@@ -26,8 +18,8 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-texture_normal = SubResource( 2 )
-texture_pressed = SubResource( 3 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
 expand = true
 script = ExtResource( 1 )
 

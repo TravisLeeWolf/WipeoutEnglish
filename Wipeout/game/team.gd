@@ -43,7 +43,7 @@ func setTeam(number):
 	$Container/TeamColor.color = colors[number]
 	myColor = $Container/TeamColor.color
 	teamNumber = number
-	$Container/TeamColor/Name.text = "Team " + str(number + 1)
+	$Container/TeamColor/Name.text = tr("TEAM_BANNER_TEXT") + " " + str(number + 1)
 	$Container/ProgressBar.self_modulate = myColor
 	# color for progressbar
 	

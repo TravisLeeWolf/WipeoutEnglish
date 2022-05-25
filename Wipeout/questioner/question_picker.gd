@@ -51,7 +51,6 @@ var counter = 0
 var setLength
 
 func _ready():
-	print("QP loaded")
 	add_pics_to_list(animal_pics, "res://pictures/animals")
 	add_pics_to_list(fruit_pics, "res://pictures/fruits")
 #	animal_questions()
@@ -70,8 +69,10 @@ func reset_questions():
 		add_questions_to_set(fruit_set)
 	elif grade >= 3 and grade <= 4:
 		add_questions_to_set(thirdfourth_daily_questions)
-	elif grade >= 5:
+	elif grade >= 5 and grade <=8:
 		add_questions_to_set(daily_questions)
+	elif grade == 9:
+		add_questions_to_set(J2.questions_to_ask)
 	
 	
 func add_questions_to_set(listOfQuestions):
@@ -93,7 +94,10 @@ func pick_a_question():
 	if counter < setLength:
 		for t in questionSet[choice][2]:
 			topic = topic + t.capitalize() + " | "	
-		question = [topic, choice, questionSet[choice][1], questionSet[choice][0]]
+		if len(questionSet[choice]) > 3:
+			question = [topic, choice, questionSet[choice][1], questionSet[choice][0], questionSet[choice][3]]
+		else:
+			question = [topic, choice, questionSet[choice][1], questionSet[choice][0]]
 		counter = counter + 1
 	else:
 		counter = setLength + 1
@@ -101,7 +105,10 @@ func pick_a_question():
 		choice = randi() % len(questionSet) # divide by 0 error
 		for t in questionSet[choice][2]:
 			topic = topic + t.capitalize() + " | "	
-		question = [topic, choice, questionSet[choice][1], questionSet[choice][0]]
+		if len(questionSet[choice]) > 3:
+			question = [topic, choice, questionSet[choice][1], questionSet[choice][0], questionSet[choice][3]]
+		else:
+			question = [topic, choice, questionSet[choice][1], questionSet[choice][0]]
 	questionSet.remove(choice)
 	return question
 
@@ -120,7 +127,8 @@ func add_questions_from_piclist(question_set, pic_list):
 	var question = []
 	for pic in pic_list:
 		randomize()
-		var chosen_template = question_templates[randi() % len(question_templates)]
+		var chosen_template = question_templates[0]
+#		var chosen_template = question_templates[randi() % len(question_templates)]
 		chosen_template[1] = pic
 		question = [] + chosen_template
 		question_set.append(question)

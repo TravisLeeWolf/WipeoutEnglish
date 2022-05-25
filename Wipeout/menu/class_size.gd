@@ -13,6 +13,7 @@ var gapSettingsActive = false
 
 func _ready():
 	reset_gap_settings()
+	setup_label_text()
 
 
 """
@@ -20,7 +21,7 @@ Displays the last student number and adjusts the gap sliders value accordingly
 """
 func _on_ClassSize_value_changed(value):
 	classSize = value
-	$MarginContainer/VBoxContainer/Label.text = str(value) + " Last student number"
+	$MarginContainer/VBoxContainer/Label.text = str(value) + " " + tr("LAST_STUDENT_NUMBER")
 	$MarginContainer/VBoxContainer/GapSettings/StartGap/StartGap.max_value = classSize
 	$MarginContainer/VBoxContainer/GapSettings/StopGap/StopGap.max_value = classSize
 	$MarginContainer/VBoxContainer/GapSettings/StopGap/StopGap.value = classSize
@@ -106,3 +107,10 @@ func reset_gap_settings():
 	gapSettingsActive = false
 	$MarginContainer/VBoxContainer/GapButtonCT.visible = true
 	$MarginContainer/VBoxContainer/GapSettings.visible = false
+
+func setup_label_text():
+	$MarginContainer/VBoxContainer/Label.text = "PICK_CLASS_SIZE"
+	$MarginContainer/VBoxContainer/GapButtonCT/Label.text = "ADD_GAP"
+	$MarginContainer/VBoxContainer/GapSettings/GapLabel.text = "GAP_SKIP_TEXT"
+	$MarginContainer/VBoxContainer/GapSettings/StartGap/Label.text = "GAP_START"
+	$MarginContainer/VBoxContainer/GapSettings/StopGap/Label.text = "GAP_END"
