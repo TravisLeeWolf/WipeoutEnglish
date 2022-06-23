@@ -15,14 +15,20 @@ The aim of the game is for a team to score the highest points without being wipe
 ### Current functionality
 - You can select the grade and questions are changed accordingly
 - There's a difficulty slider that adjusts the chance of a wipeout appearing
-- The team size can be from 1 to 6 teams
+- The team size can be from 1 to 18 teams (check settings)
 - You can show/hide the team score (hidden by default)
 - A random student selector is available by student number (it's possible to add a gap if boys/girls start at a different number)
-- Randomly pick a block to flip (This only displays a random choice currently)
-- ~~Select from a list of questions~~ (Not yet available)
+- Select from a list of questions
+- Set the theme for the blocks
 
 ### Plans for upgrades
-- Adding more questions per grade
-- Adding more animations and sounds to the gameplay
-- Allow the possiblity of themes for background and blocks
+##### Short Term
+- ~~Adding more animations and sounds to the gameplay~~ (Added)
+- Settings section for more user friendly gameplay (in-progress)
+- Randomly pick a block to flip (This only displays a random choice currently)
+- Adding mutiple questions sets per game (only 1 selectable currently)
+- Allow the possiblity of themes for background
+
+##### Long Term
 - Getting questions from an API
+- Save states in web export
