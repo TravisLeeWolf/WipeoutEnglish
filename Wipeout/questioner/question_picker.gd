@@ -40,49 +40,78 @@ var thirdfourth_daily_questions = [
 	["What sports do you like?", "res://pictures/daily/family_tv_baseball2.png", ["daily", "sports"]],
 ]
 
-var animal_pics = []
 var animalSet = []
-
-var fruit_pics = []
 var fruit_set = []
+var weather_set = []
+var feelings_set = []
+var days_set = []
+var color_set = []
+var number_set = []
+var month_set = []
+var stationary_set = []
+var sports_set = []
+
+var set_dictionary = {
+	"none" : [],
+	"animals": animalSet,
+	"fruits": fruit_set,
+	"weather": weather_set,
+	"feelings": feelings_set,
+	"days": days_set,
+	"colors": color_set,
+	"numbers": number_set,
+	"months": month_set,
+	"stationary": stationary_set,
+	"sports": sports_set
+}
 
 var questionSet = []
 var counter = 0
 var setLength
 
-func _ready():
-	add_pics_to_list(animal_pics, "res://pictures/animals")
-	add_pics_to_list(fruit_pics, "res://pictures/fruits")
-#	animal_questions()
-	add_questions_from_piclist(animalSet, animal_pics)
-	add_questions_from_piclist(fruit_set, fruit_pics)
+func _ready():	
+	add_questions_from_piclist(animalSet, PicList.pictures["animals"])
+	add_questions_from_piclist(fruit_set, PicList.pictures["fruits"])
+	add_questions_from_piclist(weather_set, PicList.pictures["weather"])
+	add_questions_from_piclist(feelings_set, PicList.pictures["feelings"])
+	add_questions_from_piclist(days_set, PicList.pictures["days"])
+	add_questions_from_piclist(color_set, PicList.pictures["colors"])
+	add_questions_from_piclist(number_set, PicList.pictures["numbers"])
+	add_questions_from_piclist(month_set, PicList.pictures["months"]) 
+	add_questions_from_piclist(stationary_set, PicList.pictures["stationary"])
+	add_questions_from_piclist(sports_set, PicList.pictures["sports"])
 
 	
 func reset_questions():
 	var grade: int = Globals.game_settings["grade"]
+	var questions_selected = Globals.game_settings["question_set"]
+	if questions_selected == "Daily" or questions_selected == "Question Set":
+		questions_selected = "none"
 	questionSet = []
 	counter = 0
 	add_questions_to_set(main_questions)
 	setLength = len(questionSet)
 	if grade <= 2:
-		add_questions_to_set(animalSet)
-		add_questions_to_set(fruit_set)
+		add_questions_to_set(set_dictionary[questions_selected])
 	elif grade >= 3 and grade <= 4:
 		add_questions_to_set(thirdfourth_daily_questions)
+		add_questions_to_set(set_dictionary[questions_selected])
 	elif grade >= 5 and grade <=8:
 		add_questions_to_set(daily_questions)
+		add_questions_to_set(set_dictionary[questions_selected])
 	elif grade == 9:
 		add_questions_to_set(J2.questions_to_ask)
 	
 	
 func add_questions_to_set(listOfQuestions):
-	var questions = [] + listOfQuestions # To create a clone of a list without reference to original list
-	while questions != []:
-		randomize()
-		var question = questions[randi() % len(questions)]
-		if not questionSet.has(question):
-			questionSet.append(question)
-			questions.erase(question)
+	if not listOfQuestions == []:
+		var questions = [] + listOfQuestions # To create a clone of a list without reference to original list
+		while questions != []:
+			randomize()
+			var question = questions[randi() % len(questions)]
+			if not questionSet.has(question):
+				questionSet.append(question)
+				questions.erase(question)
 
 
 func pick_a_question():
@@ -112,45 +141,12 @@ func pick_a_question():
 	questionSet.remove(choice)
 	return question
 
-# Not used
-func animal_questions():
-	var question_template =  ["What animal is this?", "", ["animals"]]
-	var question = []
-	for pic in animal_pics:
-		question_template[1] = pic
-		question = [] + question_template
-		animalSet.append(question)
-
 
 func add_questions_from_piclist(question_set, pic_list):
-	var question_templates = [["What is this?", "", ["guess"]], ["Do you like ~ ?", "", ["likes"]]]
+	var template = ["What's this in English?", "", ["guess"]]
 	var question = []
 	for pic in pic_list:
-		randomize()
-		var chosen_template = question_templates[0]
-#		var chosen_template = question_templates[randi() % len(question_templates)]
-		chosen_template[1] = pic
-		question = [] + chosen_template
+		template[1] = pic
+		question = [] + template
 		question_set.append(question)
-
-
-func add_pics_to_list(list, path):
-	var dir = Directory.new()
-	if dir.open(path) == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if file_name.ends_with(".png"):
-				list.append(path + "/" + file_name)
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
-
-
-
-
-
-
-
-
 

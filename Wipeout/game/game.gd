@@ -19,6 +19,7 @@ var blockList = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$NewGameSound.play()
 	setup_button_text()
 	OS.window_fullscreen = true
 	$MainCT/GameCT/GameBoardCT.columns = Globals.gridSize
@@ -53,6 +54,7 @@ func _ready():
 	
 	# Adding 6 players to the board
 	for i in range(Globals.NumberOfTeams):
+		$MainCT/HeadCT/ProgressCT.columns = ceil(Globals.NumberOfTeams/6)
 		var te = team.instance()
 		te.setTeam(i)
 		$MainCT/HeadCT/ProgressCT.add_child(te)	
@@ -73,21 +75,24 @@ func changeListColor(color):
 	$MainCT/GameCT/ButtonCT/PickTeamBTN.add_color_override("bg_color", color)
 
 func _on_YesBTN_pressed():
+	$Clicks.play()
 	emit_signal("flipCard")
 	Globals.currentTeam = $MainCT/GameCT/ButtonCT/PickTeamBTN.selected
 	$Timer.start()
 	Globals.scoreBTN = true
 	if Globals.currentScore == "X":
-		emit_signal("wipeout")
+		$WipeoutTimer.start()
 	
 
 func _on_PickTeamBTN_item_selected(index):
+	$Clicks.play()
 	emit_signal("teamSelected", index)
 
 func yesWorking():
 	$MainCT/GameCT/ButtonCT/CenterCT/CR/Message.text = "Working!"
 
 func _on_NextQuestionBTN_pressed():
+	$NextQ.play()
 	print("Next question pressed")
 	emit_signal("nextQuestion")
 	$Questions.visible = true
@@ -95,10 +100,16 @@ func _on_NextQuestionBTN_pressed():
 
 func _on_Timer_timeout():
 	emit_signal("givePoints")
+	
+func _on_WipeoutTimer_timeout():
+	emit_signal("wipeout")
 
 
 func _on_FinishGameBTN_pressed():
+	$Clicks.play()
 #	$Confirmation.set_message_text("Exit the game and return to menu?")
+	Globals.game_settings["question_set"] = "Daily"
+	Globals.blockColor = Color.white
 	$Confirmation.set_message_text("FINISH_GAME_MESSAGE")
 	$Confirmation.popup()
 	
@@ -111,15 +122,18 @@ func _input(event):
 
 
 func _on_Button_pressed():
+	$Clicks.play()
 	get_tree().change_scene("res://question_maker/question_maker.tscn")
 
 
 func _on_RevertBTN_pressed():
+	$Clicks.play()
 	emit_signal("revertScore")
 
 
 
 func _on_PickRandom_pressed():
+	$Clicks.play()
 	if len(blockList) != 0:
 		$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.text = blockList[randi() % (len(blockList)) ]
 		var toRemoveFromList = blockList.find($MainCT/GameCT/ButtonCT/CenterCT/PickRandom.text)
@@ -133,11 +147,5 @@ func setup_button_text():
 	$MainCT/GameCT/ButtonCT/CenterCT/PickRandom.text = "RANDOM_BLOCK_BUTTON"
 	$MainCT/GameCT/ButtonCT/NextQuestionBTN/Label.text = "NEXT_QUESTION_BUTTON"
 	$MainCT/GameCT/ButtonCT/FinishGameBTN/Label.text = "FINISH_GAME_BUTTON"
-
-
-
-
-
-
-
+	
 

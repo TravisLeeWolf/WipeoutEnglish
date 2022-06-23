@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://game/team.gd" type="Script" id=1]
 [ext_resource path="res://assets/sfx/coin.wav" type="AudioStream" id=2]
 [ext_resource path="res://game/team_bar_color.tres" type="StyleBox" id=3]
 [ext_resource path="res://assets/fonts/MochiyPopOne-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="Theme" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 15
@@ -39,10 +41,11 @@ __meta__ = {
 }
 
 [node name="TeamColor" type="ColorRect" parent="Container"]
-margin_right = 200.0
+margin_right = 100.0
 margin_bottom = 150.0
-rect_min_size = Vector2( 200, 0 )
+rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 3
+theme = SubResource( 5 )
 
 [node name="Name" type="Label" parent="Container/TeamColor"]
 anchor_right = 1.0
@@ -58,7 +61,7 @@ autowrap = true
 uppercase = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Container"]
-margin_left = 204.0
+margin_left = 104.0
 margin_right = 996.0
 margin_bottom = 150.0
 size_flags_horizontal = 3

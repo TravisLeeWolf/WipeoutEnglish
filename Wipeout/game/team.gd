@@ -39,8 +39,11 @@ func _process(_delta):
 		Globals.teamMaxValue = Globals.teamMaxValue + 75
 
 func setTeam(number):
+	var color_number = number
+	if number >= 6:
+		color_number = (randi() % 6) - 1
 	var colors = [Color.coral, Color.mediumslateblue, Color.gold, Color.greenyellow, Color.hotpink, Color.darkorchid]
-	$Container/TeamColor.color = colors[number]
+	$Container/TeamColor.color = colors[color_number]
 	myColor = $Container/TeamColor.color
 	teamNumber = number
 	$Container/TeamColor/Name.text = tr("TEAM_BANNER_TEXT") + " " + str(number + 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://confirmation/confirmation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/gfx/logos/title.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://menu/menu.gd" type="Script" id=4]
 [ext_resource path="res://assets/gfx/misc/grabber.png" type="Texture" id=5]
 [ext_resource path="res://assets/gfx/buttons/menu_button.png" type="Texture" id=6]
-[ext_resource path="res://menu/question_set_box.tres" type="StyleBox" id=7]
+[ext_resource path="res://menu/option_box_theme.tres" type="Theme" id=7]
 [ext_resource path="res://assets/gfx/backgrounds/menu_background.png" type="Texture" id=8]
 [ext_resource path="res://assets/gfx/buttons/grade_button.png" type="Texture" id=9]
 [ext_resource path="res://assets/gfx/buttons/grade_button_pressed.png" type="Texture" id=10]
@@ -14,10 +14,11 @@
 [ext_resource path="res://menu/class_size.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/gfx/misc/japan_flag.png" type="Texture" id=13]
 [ext_resource path="res://assets/gfx/misc/uk_flag.png" type="Texture" id=14]
+[ext_resource path="res://assets/music/komiku_bicycle.mp3" type="AudioStream" id=15]
+[ext_resource path="res://menu/settings_popup.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=17]
 
 [sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="Theme" id=1]
 
 [sub_resource type="DynamicFont" id=2]
 size = 18
@@ -128,10 +129,8 @@ margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme = SubResource( 1 )
+theme = ExtResource( 7 )
 custom_fonts/font = ExtResource( 3 )
-custom_styles/hover = ExtResource( 7 )
-custom_styles/normal = ExtResource( 7 )
 text = "Question Set"
 align = 1
 items = [ "Question Set", null, false, 0, null ]
@@ -211,7 +210,7 @@ stretch_mode = 5
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 4 )
-text = "Show
+text = "Hide
 Points
 "
 align = 1
@@ -406,7 +405,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Maker" type="TextureButton" parent="MainCT/VerCT/ButtonCT"]
+[node name="Settings" type="TextureButton" parent="MainCT/VerCT/ButtonCT"]
 margin_left = 421.0
 margin_right = 838.0
 margin_bottom = 100.0
@@ -415,27 +414,16 @@ size_flags_vertical = 3
 texture_normal = ExtResource( 6 )
 expand = true
 
-[node name="Label" type="Label" parent="MainCT/VerCT/ButtonCT/Maker"]
-self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
+[node name="Label" type="Label" parent="MainCT/VerCT/ButtonCT/Settings"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
-text = "Question Maker"
+text = "Settings"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="Settings" type="Button" parent="MainCT/VerCT/ButtonCT"]
-visible = false
-margin_left = 632.0
-margin_right = 944.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
-text = "Settings"
 
 [node name="Play" type="TextureButton" parent="MainCT/VerCT/ButtonCT"]
 margin_left = 842.0
@@ -458,7 +446,6 @@ valign = 1
 autowrap = true
 
 [node name="Confirmation" parent="." instance=ExtResource( 1 )]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -475,13 +462,35 @@ margin_top = 180.0
 margin_right = -320.0
 margin_bottom = -180.0
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -15.0
+autoplay = true
+
+[node name="Settings" parent="." instance=ExtResource( 16 )]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 135.0
+margin_top = 41.0
+margin_right = -145.0
+margin_bottom = -119.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Clicks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
 [connection signal="toggled" from="MainCT/VerCT/HeadBox/LanguageButton" to="." method="_on_LanguageButton_toggled"]
+[connection signal="item_selected" from="MainCT/VerCT/HorCT/VBoxContainer/QSet" to="." method="_on_QSet_item_selected"]
+[connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom" to="." method="_on_ChooseRandom_pressed"]
 [connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents" to="." method="_on_PickStudents_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts" to="." method="_on_ShowPts_pressed"]
 [connection signal="value_changed" from="MainCT/VerCT/HorCT/TeamCT/DiffSlider" to="." method="_on_DiffSlider_value_changed"]
 [connection signal="value_changed" from="MainCT/VerCT/HorCT/TeamCT/NumberSlider" to="." method="_on_NumberSlider_value_changed"]
 [connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/FourGrid" to="." method="_on_FourGrid_pressed"]
 [connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/SixGrid" to="." method="_on_SixGrid_pressed"]
 [connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/EightGrid" to="." method="_on_EightGrid_pressed"]
 [connection signal="pressed" from="MainCT/VerCT/ButtonCT/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="pressed" from="MainCT/VerCT/ButtonCT/Maker" to="." method="_on_Maker_pressed"]
+[connection signal="pressed" from="MainCT/VerCT/ButtonCT/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="MainCT/VerCT/ButtonCT/Play" to="." method="_on_Play_pressed"]

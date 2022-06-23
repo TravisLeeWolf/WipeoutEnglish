@@ -20,6 +20,7 @@ func _ready():
 Displays the last student number and adjusts the gap sliders value accordingly
 """
 func _on_ClassSize_value_changed(value):
+	$Clicks.play()
 	classSize = value
 	$MarginContainer/VBoxContainer/Label.text = str(value) + " " + tr("LAST_STUDENT_NUMBER")
 	$MarginContainer/VBoxContainer/GapSettings/StartGap/StartGap.max_value = classSize
@@ -31,6 +32,7 @@ func _on_ClassSize_value_changed(value):
 Sets and displays the start gap value (This is the first student number to ignore)
 """
 func _on_StartGap_value_changed(value):
+	$Clicks.play()
 	startGap = value
 	$MarginContainer/VBoxContainer/GapSettings/StartGap/Label.text = str(value)
 
@@ -39,6 +41,7 @@ func _on_StartGap_value_changed(value):
 Sets and displays the stop gap value (This is the last student number to ignore)
 """
 func _on_StopGap_value_changed(value):
+	$Clicks.play()
 	stopGap = value
 	$MarginContainer/VBoxContainer/GapSettings/StopGap/Label.text = str(value)
 
@@ -47,6 +50,7 @@ func _on_StopGap_value_changed(value):
 Calls the list maker and sets the game setting to true for picking students at random
 """
 func _on_Okay_pressed():
+	$Clicks.play()
 	make_class_number_list()
 	Globals.pickStudents = true
 	hide()
@@ -56,6 +60,7 @@ func _on_Okay_pressed():
 Calls the function not display gap sliders and set the game setting to false for picking students at random
 """
 func _on_Back_pressed():
+	$Clicks.play()
 	reset_gap_settings()
 	Globals.pickStudents = false
 	hide()
@@ -65,6 +70,7 @@ func _on_Back_pressed():
 Displays the extra settings to pick the gap to ingore
 """
 func _on_SetGap_pressed():
+	$Clicks.play()
 	show_gap_settings()
 
 	

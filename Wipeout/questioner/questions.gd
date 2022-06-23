@@ -35,6 +35,7 @@ func newQuestion():
 
 
 func _on_OkayBTN_pressed():
+	$Clicks.play()
 	Globals.scoreBTN = false
 	$Background/VertCT/ContentCT/TextBox/HintText.visible = false
 	visible = false
@@ -42,6 +43,7 @@ func _on_OkayBTN_pressed():
 
 
 func _on_AnotherQBTN_pressed():
+	$Clicks.play()
 	$Background/VertCT/ContentCT/TextBox/HintText.visible = false
 	$AnimationPlayer.stop()
 	newQuestion()
@@ -77,5 +79,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 
 
 func _on_HintButton_pressed():
+	$Clicks.play()
 	$Background/VertCT/ContentCT/TextBox/HintText.visible = true
 	$Background/VertCT/ContentCT/TextBox/HintButton.visible = false

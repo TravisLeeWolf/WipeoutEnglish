@@ -1,0 +1,250 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://menu/menu_button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/gfx/boxes/confirmation_box.png" type="Texture" id=2]
+[ext_resource path="res://menu/label_font_style.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/gfx/buttons/grade_button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://assets/gfx/buttons/grade_button.png" type="Texture" id=5]
+[ext_resource path="res://assets/gfx/buttons/okay_button.png" type="Texture" id=6]
+[ext_resource path="res://assets/gfx/buttons/revert_button.png" type="Texture" id=7]
+[ext_resource path="res://menu/settings_popup.gd" type="Script" id=8]
+[ext_resource path="res://menu/option_box_theme.tres" type="Theme" id=9]
+
+[node name="Settings" type="Popup"]
+visible = true
+anchor_right = 0.781
+anchor_bottom = 0.778
+margin_right = 0.319946
+margin_bottom = -0.160034
+script = ExtResource( 8 )
+
+[node name="BG" type="TextureRect" parent="."]
+self_modulate = Color( 0.392157, 0.607843, 1, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="MarginBox" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = -15.0
+
+[node name="VBox" type="VBoxContainer" parent="MarginBox"]
+margin_right = 970.0
+margin_bottom = 529.0
+
+[node name="Label" type="Label" parent="MarginBox/VBox"]
+margin_right = 970.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="VSplit1" type="VSplitContainer" parent="MarginBox/VBox"]
+margin_top = 48.0
+margin_right = 970.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="BlockStyleBox" type="HBoxContainer" parent="MarginBox/VBox"]
+margin_top = 77.0
+margin_right = 970.0
+margin_bottom = 177.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="HSplit1" type="HSplitContainer" parent="MarginBox/VBox/BlockStyleBox"]
+margin_right = 15.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="Label" type="Label" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 19.0
+margin_top = 36.0
+margin_right = 141.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 3 )
+text = "Block Stlye"
+align = 1
+valign = 1
+
+[node name="HSplit2" type="HSplitContainer" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 145.0
+margin_right = 160.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="BlockDisplay" type="GridContainer" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 164.0
+margin_right = 464.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 0 )
+columns = 3
+
+[node name="HSplit3" type="HSplitContainer" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 468.0
+margin_right = 483.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="ColorChange" type="TextureButton" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 487.0
+margin_right = 587.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginBox/VBox/BlockStyleBox/ColorChange"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "Rainbow
+Color"
+align = 1
+valign = 1
+
+[node name="HSplit4" type="HSplitContainer" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 591.0
+margin_right = 606.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="PictureOptions" type="OptionButton" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 610.0
+margin_right = 951.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+theme = ExtResource( 9 )
+custom_fonts/font = ExtResource( 3 )
+text = "A1, B2, C3, D4"
+align = 1
+
+[node name="HSplit5" type="HSplitContainer" parent="MarginBox/VBox/BlockStyleBox"]
+margin_left = 955.0
+margin_right = 970.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="VSplit2" type="VSplitContainer" parent="MarginBox/VBox"]
+margin_top = 181.0
+margin_right = 970.0
+margin_bottom = 249.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_vertical = 3
+
+[node name="ExtraBox" type="HBoxContainer" parent="MarginBox/VBox"]
+margin_top = 253.0
+margin_right = 970.0
+margin_bottom = 353.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="HSplit1" type="HSplitContainer" parent="MarginBox/VBox/ExtraBox"]
+margin_right = 15.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="Label" type="Label" parent="MarginBox/VBox/ExtraBox"]
+margin_left = 19.0
+margin_top = 36.0
+margin_right = 93.0
+margin_bottom = 63.0
+custom_fonts/font = ExtResource( 3 )
+text = "Extras"
+align = 1
+valign = 1
+
+[node name="HSplit2" type="HSplitContainer" parent="MarginBox/VBox/ExtraBox"]
+margin_left = 97.0
+margin_right = 847.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+size_flags_horizontal = 3
+
+[node name="MoreTeams" type="TextureButton" parent="MarginBox/VBox/ExtraBox"]
+margin_left = 851.0
+margin_right = 951.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginBox/VBox/ExtraBox/MoreTeams"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "More
+Teams"
+align = 1
+valign = 1
+
+[node name="HSplit3" type="HSplitContainer" parent="MarginBox/VBox/ExtraBox/MoreTeams"]
+margin_left = -369.0
+margin_right = 601.0
+rect_min_size = Vector2( 15, 0 )
+size_flags_horizontal = 3
+
+[node name="HSplit3" type="HSplitContainer" parent="MarginBox/VBox/ExtraBox"]
+margin_left = 955.0
+margin_right = 970.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 15, 0 )
+
+[node name="VSplit3" type="VSplitContainer" parent="MarginBox/VBox"]
+margin_top = 357.0
+margin_right = 970.0
+margin_bottom = 425.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_vertical = 3
+
+[node name="OkayCancelBox" type="HBoxContainer" parent="MarginBox/VBox"]
+margin_top = 429.0
+margin_right = 970.0
+margin_bottom = 529.0
+rect_min_size = Vector2( 0, 100 )
+alignment = 1
+
+[node name="Cancel" type="TextureButton" parent="MarginBox/VBox/OkayCancelBox"]
+margin_right = 320.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="HSplit" type="HSplitContainer" parent="MarginBox/VBox/OkayCancelBox"]
+margin_left = 324.0
+margin_right = 645.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+
+[node name="Okay" type="TextureButton" parent="MarginBox/VBox/OkayCancelBox"]
+margin_left = 649.0
+margin_right = 970.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[connection signal="pressed" from="MarginBox/VBox/BlockStyleBox/ColorChange" to="." method="_on_ColorChange_pressed"]
+[connection signal="item_selected" from="MarginBox/VBox/BlockStyleBox/PictureOptions" to="." method="_on_PictureOptions_item_selected"]
+[connection signal="pressed" from="MarginBox/VBox/ExtraBox/MoreTeams" to="." method="_on_MoreTeams_pressed"]
+[connection signal="pressed" from="MarginBox/VBox/OkayCancelBox/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="MarginBox/VBox/OkayCancelBox/Okay" to="." method="_on_Okay_pressed"]

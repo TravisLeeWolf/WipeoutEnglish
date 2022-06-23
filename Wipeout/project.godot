@@ -11,15 +11,19 @@ config_version=4
 [application]
 
 config/name="Wipeout English"
+config/description="A board game to learn English, pick the blocks and score points for your team at random. Watch out that you don't get wiped out!"
 run/main_scene="res://menu/menu.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://assets/gfx/backgrounds/splash.png"
+boot_splash/bg_color=Color( 0.392157, 0.607843, 1, 1 )
+config/icon="res://assets/gfx/logos/logo.png"
 
 [autoload]
 
 Globals="*res://globals.gd"
+LanguageManager="*res://language_manager.gd"
+PicList="*res://picture_list_maker.gd"
 QP="*res://questioner/question_picker.gd"
 J2="*res://questioner/jhs_2nd.gd"
-LanguageManager="*res://language_manager.gd"
 
 [display]
 

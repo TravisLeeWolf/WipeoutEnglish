@@ -7,4 +7,5 @@ func _ready():
 
 
 func _on_OptionButton_pressed():
+	$Clicks.play()
 	self_modulate = Color(230, 97, 0)

@@ -5,7 +5,7 @@ DIFFICULTY_SETTING_TEXT,Super Easy!*Easy*Normal*Hard*CRAZY! ,ばつ無し*優し
 TEAM_TEXT,Teams,チーム 
 AUTO_PICK_BUTTON,Auto Pick,自動で選ぶ
 RANDOM_STUDENTS_BUTTON,Random Students,ランダム生徒
-SHOW_POINTS_BUTTON,Show Points,点数を見せる
+HIDE_POINTS_BUTTON,Hide Points,点数を隠す
 EXIT_BUTTON,Quit,終わり
 QUESTION_MAKER_BUTTON,Question Maker,問題メーカー
 START_BUTTON,Play!,始めましょう！
@@ -23,3 +23,4 @@ ADD_GAP,Add gap,数字と数字の間に
 GAP_SKIP_TEXT,Numbers to skip,スキップする番号 
 GAP_START,Start,開始
 GAP_END,Stop,終了
+SETTINGS_BUTTON_TEXT,Settings,設定

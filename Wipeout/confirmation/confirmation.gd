@@ -12,11 +12,13 @@ func _ready():
 
 
 func _on_Back_pressed():
+	$Clicks.play()
 	$BG/VertCT/ButtonCT/Okay.visible = true
 	hide()
 
 
 func _on_Okay_pressed():
+	$Clicks.play()
 	if get_tree().get_current_scene().get_name() == "Game":
 		QP.reset_questions()
 		get_tree().change_scene("res://menu/menu.tscn")
@@ -27,12 +29,6 @@ func _on_Okay_pressed():
 
 func set_message_text(message):
 	$BG/VertCT/Message.text = message
-	
-	
-func makerMessage():
-	$BG/VertCT/ButtonCT/Okay.visible = false
-	set_message_text("I'm still working on this, please check back later.")
-	visible = true
 
 
 

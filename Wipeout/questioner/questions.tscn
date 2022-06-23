@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/gfx/buttons/revert_button.png" type="Texture" id=1]
 [ext_resource path="res://assets/gfx/buttons/okay_button.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/gfx/boxes/student_number_box.png" type="Texture" id=8]
 [ext_resource path="res://menu/label_font_style.tres" type="DynamicFont" id=9]
 [ext_resource path="res://assets/fonts/MochiyPopOne-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -211,6 +212,9 @@ valign = 1
 anims/ShowChosenStudent = SubResource( 4 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Clicks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
 
 [connection signal="pressed" from="Background/VertCT/ContentCT/TextBox/HintButton" to="." method="_on_HintButton_pressed"]
 [connection signal="pressed" from="Background/VertCT/ButtonCT/AnotherQBTN" to="." method="_on_AnotherQBTN_pressed"]

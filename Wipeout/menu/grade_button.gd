@@ -23,6 +23,7 @@ func _process(_delta):
 When pressed update the game settings global and change button state to pressed
 """
 func _on_GradeBTN_pressed():
+	$Clicks.play()
 	Globals.game_settings["grade"] = button_value + 1
 	print(Globals.game_settings["grade"])
 	pressed = true
