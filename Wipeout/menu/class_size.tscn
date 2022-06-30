@@ -19,7 +19,6 @@ use_filter = true
 font_data = ExtResource( 6 )
 
 [node name="ClassSize" type="Popup"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -640.0

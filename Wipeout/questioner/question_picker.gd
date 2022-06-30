@@ -40,67 +40,32 @@ var thirdfourth_daily_questions = [
 	["What sports do you like?", "res://pictures/daily/family_tv_baseball2.png", ["daily", "sports"]],
 ]
 
-var animalSet = []
-var fruit_set = []
-var weather_set = []
-var feelings_set = []
-var days_set = []
-var color_set = []
-var number_set = []
-var month_set = []
-var stationary_set = []
-var sports_set = []
-
-var set_dictionary = {
-	"none" : [],
-	"animals": animalSet,
-	"fruits": fruit_set,
-	"weather": weather_set,
-	"feelings": feelings_set,
-	"days": days_set,
-	"colors": color_set,
-	"numbers": number_set,
-	"months": month_set,
-	"stationary": stationary_set,
-	"sports": sports_set
-}
 
 var questionSet = []
 var counter = 0
 var setLength
+var picture_questions = []
 
 func _ready():	
-	add_questions_from_piclist(animalSet, PicList.pictures["animals"])
-	add_questions_from_piclist(fruit_set, PicList.pictures["fruits"])
-	add_questions_from_piclist(weather_set, PicList.pictures["weather"])
-	add_questions_from_piclist(feelings_set, PicList.pictures["feelings"])
-	add_questions_from_piclist(days_set, PicList.pictures["days"])
-	add_questions_from_piclist(color_set, PicList.pictures["colors"])
-	add_questions_from_piclist(number_set, PicList.pictures["numbers"])
-	add_questions_from_piclist(month_set, PicList.pictures["months"]) 
-	add_questions_from_piclist(stationary_set, PicList.pictures["stationary"])
-	add_questions_from_piclist(sports_set, PicList.pictures["sports"])
+	pass
 
 	
 func reset_questions():
 	var grade: int = Globals.game_settings["grade"]
-	var questions_selected = Globals.game_settings["question_set"]
-	if questions_selected == "Daily" or questions_selected == "Question Set":
-		questions_selected = "none"
 	questionSet = []
 	counter = 0
+	picture_questions = []
 	add_questions_to_set(main_questions)
 	setLength = len(questionSet)
 	if grade <= 2:
-		add_questions_to_set(set_dictionary[questions_selected])
+		pass
 	elif grade >= 3 and grade <= 4:
 		add_questions_to_set(thirdfourth_daily_questions)
-		add_questions_to_set(set_dictionary[questions_selected])
 	elif grade >= 5 and grade <=8:
 		add_questions_to_set(daily_questions)
-		add_questions_to_set(set_dictionary[questions_selected])
 	elif grade == 9:
 		add_questions_to_set(J2.questions_to_ask)
+	add_questions_from_list()
 	
 	
 func add_questions_to_set(listOfQuestions):
@@ -140,13 +105,25 @@ func pick_a_question():
 			question = [topic, choice, questionSet[choice][1], questionSet[choice][0]]
 	questionSet.remove(choice)
 	return question
+	
 
-
-func add_questions_from_piclist(question_set, pic_list):
-	var template = ["What's this in English?", "", ["guess"]]
+func make_questions_from_pic_list(picture_list) -> void:
+	var template = ["What's this in English?", "", ["guess", picture_list]]
 	var question = []
-	for pic in pic_list:
-		template[1] = pic
+	for picture in PicList.pictures[picture_list]:
+		template[1] = picture
 		question = [] + template
-		question_set.append(question)
+		picture_questions.append(question)
+		
+	
+func add_questions_from_list() -> void:
+	if not Globals.list_of_questions == []:
+		for question_set in Globals.list_of_questions:
+			make_questions_from_pic_list(question_set)
+		add_questions_to_set(picture_questions)
 
+
+func clear_questions() -> void:
+	questionSet = []
+	counter = 0
+	picture_questions = []

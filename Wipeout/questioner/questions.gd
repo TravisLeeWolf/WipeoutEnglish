@@ -69,9 +69,9 @@ func check_if_local_picture(picture_text):
 		$HTTPRequest.request(picture_text)
 
 
-func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	var img = Image.new()
-	var pic = img.load_png_from_buffer(body) # Also needs to handle jpg
+	var _pic = img.load_png_from_buffer(body) # Also needs to handle jpg
 	
 	var tex = ImageTexture.new()
 	tex.create_from_image(img)

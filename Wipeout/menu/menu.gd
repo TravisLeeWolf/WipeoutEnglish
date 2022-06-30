@@ -33,6 +33,12 @@ Using the process fucntion to update the team number slider if the value if chan
 """
 func _process(_delta: float) -> void:
 	$MainCT/VerCT/HorCT/TeamCT/NumberSlider.max_value = Globals.number_of_teams
+	if Globals.showStudentPicker:
+		$ClassSize.popup()
+		Globals.showStudentPicker = false
+	if $MainCT/VerCT/HorCT/VBoxContainer/QItems.get_item_count() == 0:
+		$MainCT/VerCT/HorCT/VBoxContainer/QItems.visible = false
+		$MainCT/VerCT/HorCT/VBoxContainer/QSet.select(0)
 
 
 """
@@ -43,18 +49,7 @@ func _on_Play_pressed():
 	$Clicks.play()
 	Globals.block_settings = false
 	Globals.NumberOfTeams = $MainCT/VerCT/HorCT/TeamCT/NumberSlider.value
-	# Check if show points is pressed and set global for the game
-	if $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts.pressed:
-		Globals.showPoints = false
-	else:
-		Globals.showPoints = true
-	# Check if choose random is pressed and show pick random button in game
-	if $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom.pressed:
-		Globals.showPickBlock = true
-	else:
-		Globals.showPickBlock = false
-	if not $MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents.pressed:
-		Globals.pickStudents = false
+	add_question_items_to_list()
 	QP.reset_questions()
 	get_tree().change_scene("res://game/game.tscn")
 
@@ -114,12 +109,6 @@ func _on_DiffSlider_value_changed(value):
 	else:
 		Globals.difficultyFactor = value
 
-"""
-Opens the popup to set number of stundets from stundet numbers
-"""
-func _on_PickStudents_pressed():
-	$Clicks.play()
-	$ClassSize.popup()
 
 """
 As the difficulty slider's value changes, display the level of difficulty
@@ -146,17 +135,16 @@ func _on_LanguageButton_toggled(button_pressed):
 		Globals.english_on = true
 	update_leftover_text()
 	reset_grade_buttons()
+	$HowTo.start_from_begining()
 
 
 func setup_menu_text():
 	$MainCT/VerCT/HorCT/VBoxContainer/QSet.set_item_text(0, "QUESTION_SET_BOX")
-	$MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom/Label.text = "AUTO_PICK_BUTTON"
-	$MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents/Label.text = "RANDOM_STUDENTS_BUTTON"
-	$MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts/Label.text = "HIDE_POINTS_BUTTON"
 	$MainCT/VerCT/ButtonCT/Quit/Label.text = "EXIT_BUTTON"
 	$MainCT/VerCT/ButtonCT/Play/Label.text = "START_BUTTON"
 	$MainCT/VerCT/HorCT/TeamCT/Count.text = "TEAM_TEXT"
 	$MainCT/VerCT/ButtonCT/Settings/Label.text = "SETTINGS_BUTTON_TEXT"
+	$MainCT/VerCT/HeadBox/HowTo/Text.text = "HOW_TO_BUTTON_TEXT"
 	
 	
 func update_leftover_text():
@@ -201,18 +189,31 @@ func add_question_set_to_options_button():
 
 func _on_QSet_item_selected(index):
 	$Clicks.play()
+	$MainCT/VerCT/HorCT/VBoxContainer/QItems.visible = true
 	if index == 0:
 		Globals.game_settings["question_set"] = "Daily"
 		$MainCT/VerCT/HorCT/VBoxContainer/QSet.pressed = false
 	else:
-		Globals.game_settings["question_set"] = $MainCT/VerCT/HorCT/VBoxContainer/QSet.get_item_text(index)
+		var questionItem = $MainCT/VerCT/HorCT/VBoxContainer/QSet.get_item_text(index)
+		Globals.game_settings["question_set"] = questionItem
+		$MainCT/VerCT/HorCT/VBoxContainer/QItems.add_item(questionItem, load("res://assets/gfx/misc/grabber.png"))
 		$MainCT/VerCT/HorCT/VBoxContainer/QSet.pressed = true
 
-
-func _on_ShowPts_pressed() -> void:
-	$Clicks.play()
-
-
-func _on_ChooseRandom_pressed() -> void:
-	$Clicks.play()
+func _on_QItems_item_selected(index):
+	$MainCT/VerCT/HorCT/VBoxContainer/QItems.remove_item(index)
 	
+
+func _on_HowTo_pressed():
+	$HowTo.visible = true
+
+
+func add_question_items_to_list():
+	if $MainCT/VerCT/HorCT/VBoxContainer/QItems.get_item_count() > 0:
+		var item_list = $MainCT/VerCT/HorCT/VBoxContainer/QItems.items
+		var list_of_questions = []
+		for item in item_list:
+			if typeof(item) == TYPE_STRING:
+				list_of_questions.append(item)
+		Globals.list_of_questions = list_of_questions
+	else:
+		Globals.list_of_questions = []

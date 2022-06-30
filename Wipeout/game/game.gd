@@ -93,7 +93,6 @@ func yesWorking():
 
 func _on_NextQuestionBTN_pressed():
 	$NextQ.play()
-	print("Next question pressed")
 	emit_signal("nextQuestion")
 	$Questions.visible = true
 
@@ -119,11 +118,6 @@ func _input(event):
 			OS.window_fullscreen = false
 		else:
 			OS.window_fullscreen = true
-
-
-func _on_Button_pressed():
-	$Clicks.play()
-	get_tree().change_scene("res://question_maker/question_maker.tscn")
 
 
 func _on_RevertBTN_pressed():

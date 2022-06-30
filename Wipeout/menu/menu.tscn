@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://confirmation/confirmation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/gfx/logos/title.png" type="Texture" id=2]
@@ -17,29 +17,37 @@
 [ext_resource path="res://assets/music/komiku_bicycle.mp3" type="AudioStream" id=15]
 [ext_resource path="res://menu/settings_popup.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/sfx/click.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/gfx/buttons/option_button.png" type="Texture" id=18]
+[ext_resource path="res://menu/HowTo.gd" type="Script" id=19]
+[ext_resource path="res://menu/HowTo.tscn" type="PackedScene" id=20]
+[ext_resource path="res://menu/label_font_style.tres" type="DynamicFont" id=21]
 
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 18
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 18
-outline_size = 5
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 11 )
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.901961, 0.380392, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 10
+anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=4]
-size = 18
-outline_size = 5
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 11 )
+[sub_resource type="Theme" id=7]
+ItemList/colors/font_color = Color( 1, 1, 1, 1 )
+ItemList/colors/font_color_selected = Color( 0.784314, 0, 0, 1 )
+ItemList/fonts/font = ExtResource( 21 )
+ItemList/styles/bg = SubResource( 8 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -97,12 +105,27 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 
-[node name="VSeparator" type="VSeparator" parent="MainCT/VerCT/HeadBox"]
+[node name="HowTo" type="TextureButton" parent="MainCT/VerCT/HeadBox"]
 margin_left = 1160.0
 margin_right = 1260.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 100, 0 )
-custom_styles/separator = SubResource( 5 )
+margin_bottom = 75.0
+rect_min_size = Vector2( 100, 75 )
+size_flags_vertical = 0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 19 )
+
+[node name="Text" type="Label" parent="MainCT/VerCT/HeadBox/HowTo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 5 )
+text = "How To"
+align = 1
+valign = 1
+
+[node name="BlinkTimer" type="Timer" parent="MainCT/VerCT/HeadBox/HowTo"]
 
 [node name="HSplit2" type="HSeparator" parent="MainCT/VerCT"]
 margin_top = 204.0
@@ -139,83 +162,21 @@ selected = 0
 [node name="HSeparator" type="HSeparator" parent="MainCT/VerCT/HorCT/VBoxContainer"]
 margin_top = 104.0
 margin_right = 408.0
-margin_bottom = 260.0
+margin_bottom = 364.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="OptionsCT" type="HBoxContainer" parent="MainCT/VerCT/HorCT/VBoxContainer"]
-margin_top = 264.0
+[node name="QItems" type="ItemList" parent="MainCT/VerCT/HorCT/VBoxContainer"]
+visible = false
+margin_top = 289.0
 margin_right = 408.0
 margin_bottom = 364.0
-rect_min_size = Vector2( 408, 100 )
-
-[node name="ChooseRandom" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
-margin_right = 133.0
-margin_bottom = 100.0
+rect_min_size = Vector2( 408, 75 )
 size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 2 )
-text = "Auto
-Pick
-"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="PickStudents" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
-margin_left = 137.0
-margin_right = 270.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 3 )
-text = "Random
-Students
-"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="ShowPts" type="TextureButton" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT"]
-margin_left = 274.0
-margin_right = 408.0
-margin_bottom = 100.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-toggle_mode = true
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 4 )
-text = "Hide
-Points
-"
-align = 1
-valign = 1
-autowrap = true
+theme = SubResource( 7 )
+custom_fonts/font = ExtResource( 21 )
+max_columns = 3
+fixed_icon_size = Vector2( 10, 10 )
 
 [node name="VSeparator" type="VSeparator" parent="MainCT/VerCT/HorCT"]
 margin_left = 412.0
@@ -456,7 +417,6 @@ margin_right = 320.0
 margin_bottom = 180.0
 
 [node name="ClassSize" parent="." instance=ExtResource( 12 )]
-visible = false
 margin_left = 320.0
 margin_top = 180.0
 margin_right = -320.0
@@ -468,7 +428,6 @@ volume_db = -15.0
 autoplay = true
 
 [node name="Settings" parent="." instance=ExtResource( 16 )]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 135.0
@@ -481,11 +440,14 @@ size_flags_vertical = 4
 [node name="Clicks" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 
+[node name="HowTo" parent="." instance=ExtResource( 20 )]
+visible = false
+
 [connection signal="toggled" from="MainCT/VerCT/HeadBox/LanguageButton" to="." method="_on_LanguageButton_toggled"]
+[connection signal="pressed" from="MainCT/VerCT/HeadBox/HowTo" to="." method="_on_HowTo_pressed"]
+[connection signal="timeout" from="MainCT/VerCT/HeadBox/HowTo/BlinkTimer" to="MainCT/VerCT/HeadBox/HowTo" method="_on_BlinkTimer_timeout"]
 [connection signal="item_selected" from="MainCT/VerCT/HorCT/VBoxContainer/QSet" to="." method="_on_QSet_item_selected"]
-[connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ChooseRandom" to="." method="_on_ChooseRandom_pressed"]
-[connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/PickStudents" to="." method="_on_PickStudents_pressed"]
-[connection signal="pressed" from="MainCT/VerCT/HorCT/VBoxContainer/OptionsCT/ShowPts" to="." method="_on_ShowPts_pressed"]
+[connection signal="item_selected" from="MainCT/VerCT/HorCT/VBoxContainer/QItems" to="." method="_on_QItems_item_selected"]
 [connection signal="value_changed" from="MainCT/VerCT/HorCT/TeamCT/DiffSlider" to="." method="_on_DiffSlider_value_changed"]
 [connection signal="value_changed" from="MainCT/VerCT/HorCT/TeamCT/NumberSlider" to="." method="_on_NumberSlider_value_changed"]
 [connection signal="pressed" from="MainCT/VerCT/HorCT/TeamCT/GridCT/FourGrid" to="." method="_on_FourGrid_pressed"]

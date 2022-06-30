@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/gfx/backgrounds/menu_background.png" type="Texture" id=1]
+[ext_resource path="res://assets/howto/how_to_menu.jpg" type="Texture" id=2]
+[ext_resource path="res://menu/how_to_helper.gd" type="Script" id=3]
+
+[node name="HowTo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TapThrough" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+
+[connection signal="pressed" from="TapThrough" to="." method="_on_TapThrough_pressed"]

@@ -6,9 +6,10 @@ prevous scene
 
 
 func _ready():
-	if get_tree().get_current_scene().get_name() == "Menu":
-		var maker = get_tree().get_root().find_node("Menu", true, false)
-		maker.connect("question_maker_message_sent", self, "makerMessage")
+	pass
+#	if get_tree().get_current_scene().get_name() == "Menu":
+#		var maker = get_tree().get_root().find_node("Menu", true, false)
+#		maker.connect("question_maker_message_sent", self, "makerMessage")
 
 
 func _on_Back_pressed():
@@ -20,7 +21,7 @@ func _on_Back_pressed():
 func _on_Okay_pressed():
 	$Clicks.play()
 	if get_tree().get_current_scene().get_name() == "Game":
-		QP.reset_questions()
+		QP.clear_questions()
 		get_tree().change_scene("res://menu/menu.tscn")
 	else:
 #		get_tree().quit() Add back for offline game

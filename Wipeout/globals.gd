@@ -2,6 +2,9 @@ extends Node
 """
 Variables to be used accross scenes for setting up the game and keeping track of changes
 """
+var MY_PURPLE = Color(0.568627, 0.254902, 0.686275)
+var MY_ORANGE = Color(0.901961, 0.372549, 0)
+
 var GRADES: Array = []
 
 # Game settings dictonary to contain all settings in the menu with defaults set
@@ -15,6 +18,7 @@ var game_settings: Dictionary = {
 	"auto_pick": false,
 	"random_students": [],
 }
+var list_of_questions = []
 
 var currentScore
 var currentTeam = 0
@@ -25,6 +29,7 @@ var number_of_teams = 6
 var NumberOfTeams = 6
 var teamMaxValue = 100
 var studentNumberList = []
+var showStudentPicker = false
 var pickStudents = false
 
 var english_on = true
