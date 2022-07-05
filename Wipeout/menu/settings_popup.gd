@@ -110,6 +110,8 @@ func _on_HidePoints_pressed():
 
 
 func setup_text() -> void:
+	$MarginBox/VBox/BlockStyleBox/ColorChange/Label.text = "RAINBOW_COLOR_BUTTON"
 	$MarginBox/VBox/ExtraBox/ChooseRandom/Label.text = "AUTO_PICK_BUTTON"
 	$MarginBox/VBox/ExtraBox/PickStudents/Label.text = "RANDOM_STUDENTS_BUTTON"
 	$MarginBox/VBox/ExtraBox/HidePoints/Label.text = "HIDE_POINTS_BUTTON"
+	$MarginBox/VBox/ExtraBox/MoreTeams/Label.text = "MORE_TEAMS_BUTTON"
